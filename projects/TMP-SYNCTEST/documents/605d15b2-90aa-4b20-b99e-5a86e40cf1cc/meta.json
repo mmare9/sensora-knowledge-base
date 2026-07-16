@@ -1,0 +1,15 @@
+{
+  "filename": "test 2mb file.bin",
+  "mime_type": "application/octet-stream",
+  "size_bytes": 2097152,
+  "kind": "other",
+  "notes": null,
+  "parsing_status": "failed",
+  "parsing_warnings": [
+    "Tipo di file non supportato (mime='application/octet-stream', file='test 2mb file.bin')"
+  ],
+  "text_content": "",
+  "tables": [],
+  "metadata": {},
+  "created_at": "2026-07-16T14:52:21.128155+00:00"
+}
