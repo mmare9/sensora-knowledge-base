@@ -1,0 +1,1949 @@
+{
+  "project_id": "7f3ec34b-f769-46c3-be1a-48ca87e3f76d",
+  "user_intent": null,
+  "template_data": {
+    "schema_version": "1.0.0",
+    "current_maturity_step": 2,
+    "project": {
+      "sensor_name": {
+        "value": "Chat Sync Test",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "project_code": {
+        "value": "TMP-CHATSYNC",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "responsible": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "opening_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "document_version": {
+        "value": "0.1",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "client_context": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_1_problem_requirements": {
+      "phenomenon_to_monitor": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "event_to_detect": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "expected_output": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "acquisition_frequency": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "installation_constraints": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "operating_context": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "relevant_parameters": {
+      "temperature": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "relative_humidity": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "co_voc": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "pressure": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "luminosity": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "vibration_acceleration": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "movement_presence": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "other": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_2_entry_criteria": {
+      "requirements_defined_and_shared": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "expected_output_approved": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_2_phenomenon_study": {
+      "characteristic_timescales": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "environmental_conditions": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "literature_thresholds": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "applicable_standards": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "consulted_sources": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_2_exit_checklist": {
+      "measured_quantities_identified": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "preliminary_thresholds_documented": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_3_market_research": {
+      "candidate_1_model": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_1_parameter": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_1_range": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_1_cost": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_1_interface": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_1_judgment": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_2_model": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_2_parameter": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_2_range": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_2_cost": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_2_interface": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_2_judgment": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_3_model": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_3_parameter": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_3_range": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_3_cost": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_3_interface": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_3_judgment": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_4_model": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_4_parameter": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_4_range": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_4_cost": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_4_interface": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_4_judgment": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "selected_solution": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "selection_rationale": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "competitor_comparison_required": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_3_exit_checklist": {
+      "at_least_three_alternatives_evaluated": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "selected_sensor_meets_step1_requirements": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      }
+    },
+    "step_4_hardware_selection": {
+      "hardware_category": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "category_rationale": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "selected_mcu_sbc": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "communication_protocol": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "power_supply": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "battery_autonomy_estimate": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "pcb_notes": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_4_exit_checklist": {
+      "bom_preliminary_defined": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "unit_hardware_cost_documented": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      }
+    },
+    "step_5_prototyping": {
+      "p0_objective": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p0_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p0_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p1_objective": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p1_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p1_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p2_objective": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p2_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p2_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p3_objective": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p3_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p3_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p4_objective": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p4_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p4_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "datasheet_draft_started_from_prototype": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "critical_notes_emerged": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_6_calibration": {
+      "calibration_type": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "certified_reference_sample": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "recalibration_frequency": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "drift_verification_method": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "accepted_tolerance": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "procedure_documented_in": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_6_exit_checklist": {
+      "calibration_curve_documented": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "field_recalibration_procedure_written": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      }
+    },
+    "step_7_data_collection": {
+      "raw_data_collected": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "metadata_included": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "context_information": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "anomalous_reading_handling": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "unresponsive_sensor_handling": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "drift_over_time_handling": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "storage_buffer_enabled": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "storage_buffer_capacity": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "buffer_flush_policy": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_7_exit_checklist": {
+      "dataset_collected_in_real_conditions": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "anomalies_documented_and_classified": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      }
+    },
+    "step_8_analysis_thresholds_ai": {
+      "intelligence_level": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "level_rationale": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_1_parameter": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_1_attention": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_1_alarm": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_1_min_duration": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_1_action": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_2_parameter": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_2_attention": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_2_alarm": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_2_min_duration": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_2_action": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_parameter": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_attention": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_alarm": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_min_duration": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_action": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "model_input_variables": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "model_type": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "training_dataset_available": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "validation_metrics_target": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_9_data_contract": {
+      "device_id": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "device_type": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "timestamp": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "frame_id": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_field_1": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_field_2": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_field_3": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "processed_indicator_1": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "processed_indicator_2": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "connection_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "local_storage_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "event_detected": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_9_transport_config": {
+      "mqtt_topic_endpoint": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "serialization_format": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "sentinel_alignment_confirmed_by": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "sentinel_alignment_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_9_exit_checklist": {
+      "payload_approved_by_tech_lead": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "parsing_test_passed": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      }
+    },
+    "step_10_field_validation": {
+      "continuous_operation_method": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "continuous_operation_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "continuous_operation_notes": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "connection_loss_method": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "connection_loss_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "connection_loss_notes": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "power_interruption_method": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "power_interruption_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "power_interruption_notes": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_repeatability_method": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_repeatability_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_repeatability_notes": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "thermal_stress_method": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "thermal_stress_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "thermal_stress_notes": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "buffer_saturation_method": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "buffer_saturation_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "buffer_saturation_notes": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "test_environment": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "test_campaign_duration": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "anomalies_detected": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "corrective_actions_applied": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "validation_approved_by": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_10_exit_checklist": {
+      "all_tests_passed": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "no_open_critical_anomalies": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "validation_dataset_archived": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "repeatability_within_tolerance": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      }
+    },
+    "step_11_final_documentation": {
+      "technical_datasheet_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "technical_datasheet_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "technical_datasheet_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "user_manual_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "user_manual_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "user_manual_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "installation_manual_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "installation_manual_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "installation_manual_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "calibration_procedure_doc_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "calibration_procedure_doc_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "calibration_procedure_doc_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "firmware_release_notes_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "firmware_release_notes_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "firmware_release_notes_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "final_bom_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "final_bom_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "final_bom_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "code_repository_branch_tag": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "final_firmware_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "code_optimized_post_validation": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "rd_manager_name": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "rd_manager_date_signature": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "ai_tech_lead_name": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "ai_tech_lead_date_signature": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "delivery_lead_name": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "delivery_lead_date_signature": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "project_closure_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "lessons_learned": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "reusable_components_for_future_projects": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    }
+  },
+  "documents": [],
+  "retrieved_context": {
+    "sensor_name": [],
+    "project_code": [],
+    "responsible": [],
+    "opening_date": [],
+    "document_version": [],
+    "client_context": [],
+    "phenomenon_to_monitor": [],
+    "event_to_detect": [],
+    "expected_output": [],
+    "acquisition_frequency": [],
+    "installation_constraints": [],
+    "operating_context": [],
+    "temperature": [],
+    "relative_humidity": [],
+    "co_voc": [],
+    "pressure": [],
+    "luminosity": [],
+    "vibration_acceleration": [],
+    "movement_presence": [],
+    "other": [],
+    "requirements_defined_and_shared": [],
+    "expected_output_approved": [],
+    "characteristic_timescales": [],
+    "environmental_conditions": [],
+    "literature_thresholds": [],
+    "applicable_standards": [],
+    "consulted_sources": [],
+    "measured_quantities_identified": [],
+    "preliminary_thresholds_documented": [],
+    "candidate_1_model": [],
+    "candidate_1_parameter": [],
+    "candidate_1_range": [],
+    "candidate_1_cost": [],
+    "candidate_1_interface": [],
+    "candidate_1_judgment": [],
+    "candidate_2_model": [],
+    "candidate_2_parameter": [],
+    "candidate_2_range": [],
+    "candidate_2_cost": [],
+    "candidate_2_interface": [],
+    "candidate_2_judgment": [],
+    "candidate_3_model": [],
+    "candidate_3_parameter": [],
+    "candidate_3_range": [],
+    "candidate_3_cost": [],
+    "candidate_3_interface": [],
+    "candidate_3_judgment": [],
+    "candidate_4_model": [],
+    "candidate_4_parameter": [],
+    "candidate_4_range": [],
+    "candidate_4_cost": [],
+    "candidate_4_interface": [],
+    "candidate_4_judgment": [],
+    "selected_solution": [],
+    "selection_rationale": [],
+    "competitor_comparison_required": [],
+    "at_least_three_alternatives_evaluated": [],
+    "selected_sensor_meets_step1_requirements": [],
+    "hardware_category": [],
+    "category_rationale": [],
+    "selected_mcu_sbc": [],
+    "communication_protocol": [],
+    "power_supply": [],
+    "battery_autonomy_estimate": [],
+    "pcb_notes": [],
+    "bom_preliminary_defined": [],
+    "unit_hardware_cost_documented": [],
+    "p0_objective": [],
+    "p0_date": [],
+    "p0_outcome": [],
+    "p1_objective": [],
+    "p1_date": [],
+    "p1_outcome": [],
+    "p2_objective": [],
+    "p2_date": [],
+    "p2_outcome": [],
+    "p3_objective": [],
+    "p3_date": [],
+    "p3_outcome": [],
+    "p4_objective": [],
+    "p4_date": [],
+    "p4_outcome": [],
+    "datasheet_draft_started_from_prototype": [],
+    "critical_notes_emerged": [],
+    "calibration_type": [],
+    "certified_reference_sample": [],
+    "recalibration_frequency": [],
+    "drift_verification_method": [],
+    "accepted_tolerance": [],
+    "procedure_documented_in": [],
+    "calibration_curve_documented": [],
+    "field_recalibration_procedure_written": [],
+    "raw_data_collected": [],
+    "metadata_included": [],
+    "context_information": [],
+    "anomalous_reading_handling": [],
+    "unresponsive_sensor_handling": [],
+    "drift_over_time_handling": [],
+    "storage_buffer_enabled": [],
+    "storage_buffer_capacity": [],
+    "buffer_flush_policy": [],
+    "dataset_collected_in_real_conditions": [],
+    "anomalies_documented_and_classified": [],
+    "intelligence_level": [],
+    "level_rationale": [],
+    "threshold_1_parameter": [],
+    "threshold_1_attention": [],
+    "threshold_1_alarm": [],
+    "threshold_1_min_duration": [],
+    "threshold_1_action": [],
+    "threshold_2_parameter": [],
+    "threshold_2_attention": [],
+    "threshold_2_alarm": [],
+    "threshold_2_min_duration": [],
+    "threshold_2_action": [],
+    "threshold_3_parameter": [],
+    "threshold_3_attention": [],
+    "threshold_3_alarm": [],
+    "threshold_3_min_duration": [],
+    "threshold_3_action": [],
+    "model_input_variables": [],
+    "model_type": [],
+    "training_dataset_available": [],
+    "validation_metrics_target": [],
+    "device_id": [],
+    "device_type": [],
+    "timestamp": [],
+    "frame_id": [],
+    "measurement_field_1": [],
+    "measurement_field_2": [],
+    "measurement_field_3": [],
+    "processed_indicator_1": [],
+    "processed_indicator_2": [],
+    "connection_status": [],
+    "local_storage_status": [],
+    "event_detected": [],
+    "mqtt_topic_endpoint": [],
+    "serialization_format": [],
+    "sentinel_alignment_confirmed_by": [],
+    "sentinel_alignment_date": [],
+    "payload_approved_by_tech_lead": [],
+    "parsing_test_passed": [],
+    "continuous_operation_method": [],
+    "continuous_operation_outcome": [],
+    "continuous_operation_notes": [],
+    "connection_loss_method": [],
+    "connection_loss_outcome": [],
+    "connection_loss_notes": [],
+    "power_interruption_method": [],
+    "power_interruption_outcome": [],
+    "power_interruption_notes": [],
+    "measurement_repeatability_method": [],
+    "measurement_repeatability_outcome": [],
+    "measurement_repeatability_notes": [],
+    "thermal_stress_method": [],
+    "thermal_stress_outcome": [],
+    "thermal_stress_notes": [],
+    "buffer_saturation_method": [],
+    "buffer_saturation_outcome": [],
+    "buffer_saturation_notes": [],
+    "test_environment": [],
+    "test_campaign_duration": [],
+    "anomalies_detected": [],
+    "corrective_actions_applied": [],
+    "validation_approved_by": [],
+    "all_tests_passed": [],
+    "no_open_critical_anomalies": [],
+    "validation_dataset_archived": [],
+    "repeatability_within_tolerance": [],
+    "technical_datasheet_version": [],
+    "technical_datasheet_date": [],
+    "technical_datasheet_status": [],
+    "user_manual_version": [],
+    "user_manual_date": [],
+    "user_manual_status": [],
+    "installation_manual_version": [],
+    "installation_manual_date": [],
+    "installation_manual_status": [],
+    "calibration_procedure_doc_version": [],
+    "calibration_procedure_doc_date": [],
+    "calibration_procedure_doc_status": [],
+    "firmware_release_notes_version": [],
+    "firmware_release_notes_date": [],
+    "firmware_release_notes_status": [],
+    "final_bom_version": [],
+    "final_bom_date": [],
+    "final_bom_status": [],
+    "code_repository_branch_tag": [],
+    "final_firmware_version": [],
+    "code_optimized_post_validation": [],
+    "rd_manager_name": [],
+    "rd_manager_date_signature": [],
+    "ai_tech_lead_name": [],
+    "ai_tech_lead_date_signature": [],
+    "delivery_lead_name": [],
+    "delivery_lead_date_signature": [],
+    "project_closure_date": [],
+    "lessons_learned": [],
+    "reusable_components_for_future_projects": []
+  },
+  "missing_fields": [
+    "acquisition_frequency",
+    "event_to_detect",
+    "expected_output",
+    "installation_constraints",
+    "operating_context",
+    "phenomenon_to_monitor",
+    "expected_output_approved",
+    "requirements_defined_and_shared",
+    "measured_quantities_identified",
+    "preliminary_thresholds_documented"
+  ],
+  "proposed_answers": {},
+  "questions_for_user": [
+    {
+      "field_key": "acquisition_frequency",
+      "field_label": "Frequenza di acquisizione",
+      "question": "Con quale frequenza acquisite i dati e qual è l'intervallo di campionamento utilizzato nei vostri sistemi?",
+      "options": [],
+      "allow_free_text": true
+    },
+    {
+      "field_key": "event_to_detect",
+      "field_label": "Evento da rilevare",
+      "question": "Quali sono gli eventi o le condizioni specifiche che desideri monitorare e quali soglie di allarme vorresti impostare per ciascuno di essi?",
+      "options": [],
+      "allow_free_text": true
+    },
+    {
+      "field_key": "expected_output",
+      "field_label": "Output atteso",
+      "question": "Quali sono gli output attesi dal tuo sistema: dati grezzi, allarmi, dashboard o segnali di controllo?",
+      "options": [],
+      "allow_free_text": true
+    },
+    {
+      "field_key": "installation_constraints",
+      "field_label": "Vincoli di installazione",
+      "question": "Quali sono i vincoli tecnici e logistici per l'installazione del sistema, considerando i requisiti di alimentazione, lo spazio disponibile e le condizioni ambientali necessarie?",
+      "options": [],
+      "allow_free_text": true
+    },
+    {
+      "field_key": "operating_context",
+      "field_label": "Contesto operativo",
+      "question": "In quale contesto operativo sarà utilizzato il prodotto (indoor, outdoor o entrambi) e quali sono le condizioni ambientali critiche come il range termico e l'esposizione prevista?",
+      "options": [],
+      "allow_free_text": true
+    },
+    {
+      "field_key": "phenomenon_to_monitor",
+      "field_label": "Fenomeno da monitorare",
+      "question": "Quali sono i fenomeni fisici o ambientali che ritieni più importanti da monitorare nel tuo contesto di lavoro? Puoi descrivere le caratteristiche principali e la frequenza con cui necessitano di essere osservati?",
+      "options": [],
+      "allow_free_text": true
+    },
+    {
+      "field_key": "expected_output_approved",
+      "field_label": "Output atteso approvato",
+      "question": "È stato approvato dal cliente l'output atteso per questo progetto? In caso affermativo, potrebbe fornire una conferma scritta o indicare la data di approvazione?",
+      "options": [],
+      "allow_free_text": true
+    },
+    {
+      "field_key": "requirements_defined_and_shared",
+      "field_label": "Requisiti definiti e condivisi",
+      "question": "Sono stati definiti e condivisi con il cliente tutti i requisiti tecnici necessari per il progetto? Potete confermare che il cliente ha approvato e accettato le specifiche tecniche identificate?",
+      "options": [],
+      "allow_free_text": true
+    },
+    {
+      "field_key": "measured_quantities_identified",
+      "field_label": "Grandezze da misurare identificate",
+      "question": "Quali sono le grandezze fisiche che intendete misurare nel vostro progetto e quali sono le motivazioni fisiche che giustificano la scelta di ciascuna grandezza?",
+      "options": [],
+      "allow_free_text": true
+    },
+    {
+      "field_key": "preliminary_thresholds_documented",
+      "field_label": "Soglie preliminari documentate",
+      "question": "Quali sono le soglie preliminari che sono state documentate nel vostro processo? Potete fornire dettagli sulla documentazione di questi valori di riferimento?",
+      "options": [],
+      "allow_free_text": true
+    }
+  ],
+  "user_answers": {},
+  "validation_errors": [],
+  "next_action": "await_user_input",
+  "current_step": "in_progress",
+  "conversation": [
+    {
+      "role": "assistant",
+      "content": "Ho visto che per questo progetto non c'è ancora documentazione disponibile, quindi partiamo da zero e va benissimo così. Mi piacerebbe che mi raccontassi liberamente come funziona il vostro sistema, che cosa state cercando di misurare o ottimizzare, e soprattutto quale problema concreto state cercando di risolvere — magari partendo dal contesto in cui operate e da come lavorate oggi."
+    }
+  ],
+  "agent_message": "Ho visto che per questo progetto non c'è ancora documentazione disponibile, quindi partiamo da zero e va benissimo così. Mi piacerebbe che mi raccontassi liberamente come funziona il vostro sistema, che cosa state cercando di misurare o ottimizzare, e soprattutto quale problema concreto state cercando di risolvere — magari partendo dal contesto in cui operate e da come lavorate oggi.",
+  "updated_at": "2026-07-16T15:43:22.126275+00:00"
+}
