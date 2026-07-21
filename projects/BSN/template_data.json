@@ -1,0 +1,259 @@
+{
+  "project_id": "f349eba8-b633-4bea-bd6b-3c6b6cf024fb",
+  "updated_at": "2026-07-14T06:47:28.065741+00:00",
+  "data": {
+    "schema_version": "1.0.0",
+    "project": {
+      "sensor_name": {
+        "value": "Biosensore",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "project_code": {
+        "value": "BSN",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "responsible": {
+        "value": "Pierpaolo Paio",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "opening_date": {
+        "value": "25/06/24",
+        "sources": [
+          "Report settimana 8.pdf"
+        ],
+        "reasoning": "Data esplicita menzionata nel Report settimana 8 come inizio della validazione sperimentale e stress test del sistema IoT",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "document_version": {
+        "value": "0.1",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "client_context": {
+        "value": "Settore biologico/microbiologico - Monitoraggio spore e germinazione con visione artificiale; sito di laboratorio con esigenze di acquisizione automatica, elaborazione immagini e affidabilità di connettività",
+        "sources": [
+          "Report settimana 2.pdf",
+          "Report settimana 8.pdf",
+          "Report settimana 1.pdf"
+        ],
+        "reasoning": "Gli estratti descrivono un progetto incentrato su rilevamento spore mediante microscopio digitale, analisi di germinazione biologica, e sistema IoT con acquisizione immagini oraria, elaborazione locale e sincronizzazione remota tramite MQTT",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_1_problem_requirements": {
+      "phenomenon_to_monitor": {
+        "value": "Germinazione di spore biologiche",
+        "sources": [
+          "Report settimana 2.pdf"
+        ],
+        "reasoning": "Fenomeno centrale del progetto: monitoraggio della visibilità del tubetto germinativo nelle spore mediante visione artificiale, con osservazione continua per ore sotto condizioni ambientali controllate (luce LED).",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "event_to_detect": {
+        "value": "Superamento soglia spore con confidence threshold e monitoraggio diagnostics connessione",
+        "sources": [
+          "Report settimana 8.pdf",
+          "Report settimana 2.pdf"
+        ],
+        "reasoning": "Direttamente estratto dalla documentazione (Report settimana 8) come evento rilevato. Include parametri critici: soglia spore, confidence della previsione e stato diagnostico della connessione/sensore per manutenzione predittiva.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "expected_output": {
+        "value": "dato",
+        "sources": [
+          "Report settimana 7.pdf",
+          "Report settimana 5.pdf"
+        ],
+        "reasoning": "Il sistema acquisisce dati biometrici: foto oraria, misure di lunghezza del filamento tramite Skeletonization, risoluzione spore 3-7/8 µm. Output primario è la raccolta di dati dimensionali e temporali.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "acquisition_frequency": {
+        "value": "Conforme a teorema di Nyquist-Shannon (≥6 pixel/spore)",
+        "sources": [
+          "Report settimana 1.pdf"
+        ],
+        "reasoning": "Gli estratti specificano che il sottosistema ottico deve soddisfare il teorema di Nyquist-Shannon per mappare ogni particella su almeno 3x3 pixel. Questo vincolo determina la frequenza di acquisizione minima compatibile con la rilevabilità delle spore.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "installation_constraints": {
+        "value": "Assenza connettore CSI su RevPi Core S; alimentazione via interfaccia industriale; camera USB esterna; ambiente controllato (campana umidità); spazio limitato per ottica di acquisizione (15-30 pixel/µm)",
+        "sources": [
+          "Report settimana 3.pdf",
+          "Report settimana 5.pdf"
+        ],
+        "reasoning": "Estrae direttamente i vincoli hardware (mancanza CSI, architettura RevPi industriale), di alimentazione (interfaccia non consumer), ambientali (controllo umidità) e di spazio ottico (requisiti Nyquist-Shannon per risoluzione biologica)",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "operating_context": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "relevant_parameters": {
+      "temperature": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report settimana 7.pdf"
+        ],
+        "reasoning": "Specificato direttamente nelle specifiche operative del sistema come intervallo di funzionamento ottimale, con tolleranza fino a 34°C per target specifici. Critico per prevenire condensa e garantire stabilità ottica. — 20-30°C (range operativo ottimale)",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "relative_humidity": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report settimana 5.pdf"
+        ],
+        "reasoning": "Range ottimale per la saturazione della campana di test e assicurare condizioni biologiche stabili per il monitoraggio delle spore — 80-95%",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "co_voc": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report settimana 4.pdf",
+          "Report settimana 5.pdf",
+          "Report settimana 8.pdf"
+        ],
+        "reasoning": "Gli estratti documentali riguardano un biosensore ottico per rilevazione di spore biologiche mediante analisi di immagini e visione artificiale. Non sono presenti riferimenti a misurazioni di CO2 o VOC, né a sensori chimici/gas. — Non rilevante",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "pressure": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report settimana 3.pdf",
+          "Report settimana 5.pdf"
+        ],
+        "reasoning": "Gli estratti documentali descrivono un sistema di visione microscopica per rilevamento biologico (spore fungine) senza riferimenti a sensori di pressione di processo o atmosferica. Il sistema opera in condizioni di laboratorio controllato con vincoli meccanici ottici (NA 0.25, WD 5-7 mm), non di pressione. — Non applicabile - Sistema ottico a pressione atmosferica standard",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "luminosity": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report settimana 1.pdf"
+        ],
+        "reasoning": "Specifica tecnica esplicita per l'illuminamento del sistema biosensore. LED bianco attivato durante l'acquisizione per contrasto ottimale nelle immagini microscopiche. — 6000K-6500K (LED bianco con diffusore)",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "vibration_acceleration": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report settimana 1.pdf",
+          "Report settimana 3.pdf",
+          "Report settimana 8.pdf"
+        ],
+        "reasoning": "Gli estratti documentali riguardano esclusivamente sistemi di acquisizione e elaborazione di immagini microscopiche per rilevamento di spore. Non contengono riferimenti a vibrazioni, accelerometri, o fenomeni dinamici meccanici. Il sistema è basato su imaging ottico statico. — Non rilevante",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "movement_presence": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report settimana 5.pdf"
+        ],
+        "reasoning": "Gli estratti identificano esplicitamente nel turgore cellulare e nell'aumento della densità del campione i parametri primari di rilevazione per distinguere lo stato quiescente dall'attività metabolica. Questi indicatori precedono la germinazione fungina. — Rilevazione di variazione di densità e turgore cellulare",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "other": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report settimana 3.pdf"
+        ],
+        "reasoning": "Parametro critico per la fedeltà acquisitiva e classificazione morfologica delle spore. Non è un vincolo meccanico o hardware, ma un requisito prestazionale trasversale che determina la qualità dell'analisi dell'immagine. — Regola dei pixel (15-30 pixel per oggetto 10 µm) - Criterio Nyquist-Shannon",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_2_entry_criteria": {
+      "requirements_defined_and_shared": {
+        "value": "Requisiti tecnici definiti: parametri di acquisizione (frequenza, risoluzione ottica), vincoli ambientali (umidità, temperatura), specifiche hardware (supporto planare in cellophane, componenti ottici critici), output atteso e trigger di allarme",
+        "sources": [
+          "Report settimana 8.pdf"
+        ],
+        "reasoning": "Gli estratti documentano la definizione completa dei requisiti nelle fasi iniziali del progetto biosensore, includendo parametri rilevanti, condizioni operative e specifiche costruttive condivise nel piano operativo",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "expected_output_approved": {
+        "value": "Scheda tecnica del sensore con specifiche ottiche, elettroniche e software",
+        "sources": [
+          "Report settimana 4.pdf"
+        ],
+        "reasoning": "Documentato nella settimana 4: bozza della scheda tecnica avviata con descrizione strutturata di caratteristiche, architettura, specifiche e limitazioni del prototipo",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    }
+  }
+}
