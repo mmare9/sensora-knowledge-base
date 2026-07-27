@@ -1,0 +1,43 @@
+{
+  "filename": "Report seconda settimana.docx",
+  "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "size_bytes": 17882,
+  "kind": "other",
+  "notes": null,
+  "parsing_status": "success",
+  "parsing_warnings": [],
+  "text_content": "Report seconda settimana\nSintesi Esecutiva\nIl presente documento delinea lo sviluppo di un sistema di monitoraggio biologico automatizzato volto all'analisi delle spore e della loro velocità di germinazione. Il progetto si focalizza sulla creazione di una piattaforma modulare e riutilizzabile che integri acquisizione ottica, elaborazione tramite intelligenza artificiale e trasmissione dati wireless. Le analisi preliminari indicano che il raggiungimento di una risoluzione ottimale (circa 71 pixel per spora da 10µm con ingrandimento 10x) è fondamentale per distinguere i bordi e le forme tramite reti neurali. Il confronto tra le piattaforme hardware identifica nel Raspberry Pi lo strumento ideale per la prototipazione e l'addestramento, mentre l'ESP32 risulta la soluzione d'elezione per l'implementazione di sistemi embedded a basso consumo e costo ridotto.\n-------------------------------------------------------------------------------- \nObiettivi e Metodologia di Progetto\nL'obiettivo primario è lo sviluppo di un sistema per l'osservazione di spore biologiche con dimensioni approssimative di 10µm. Il sistema deve essere in grado di determinare:\nPresenza/assenza di spore (Sì/No).\nVelocità di germinazione.\nArea occupata.\nApproccio Metodologico\nLa strategia di sviluppo si basa su una piattaforma modulare composta da:\nCamera + Ottica + Illuminazione: Per l'acquisizione delle immagini.\nElaborazione: Per l'analisi dei dati tramite algoritmi di Computer Vision (CV) e Inferenza IA.\nStruttura Fissa: Necessaria per garantire la ripetibilità delle misurazioni tramite illuminazione costante e posizionamento stabile.\n-------------------------------------------------------------------------------- \nArchitettura Hardware e Piattaforme\nLa ricerca ha valutato due opzioni principali per l'unità di elaborazione: Raspberry Pi ed ESP32.\nConfronto Tecnico\nRequisiti di Sistema\nAffidabilità: In caso di perdita di connettività, il sistema deve salvare i dati localmente (scheda SD) per trasmetterli al ripristino del segnale.\nModularità: La piattaforma deve permettere la sostituzione di moduli (ottica, sensore, algoritmi) per essere riutilizzabile in contesti diversi.\nPerformance: È necessario impostare un tempo di esecuzione massimo per evitare blocchi del sistema.\n-------------------------------------------------------------------------------- \nSpecifiche Ottiche e Risoluzione\nPer rilevare efficacemente particelle di 10µm, il sistema deve soddisfare i criteri del Teorema di Nyquist-Shannon, mappando ogni particella su un'area di almeno 30x30 pixel.\nCalcolo della Risoluzione (N_{px})\nAnalisi basata sui sensori IMX219 (p=1,4\\mu m) e IMX708 (p=1,12\\mu m):\nM=4 (Limite): ~29-35 pixel. Sufficiente per il rilevamento minimo.\nM=10 (Ottimo): ~71-90 pixel. Eccellente per il riconoscimento di bordi e forme.\nConfigurazione Ottica Consigliata\nSi raccomanda l'uso di un obiettivo 10x. Sebbene un 20x offra maggiore dettaglio per il Machine Learning, esso comporta:\nCampo visivo (FOV) ridotto.\nMinore profondità di campo.\nMaggiore rumore e necessità di sensori più sofisticati.\nPer compensare il campo visivo limitato, si valuta lo spostamento del vetrino tramite motori o l'uso di un'ottica più adatta.\n-------------------------------------------------------------------------------- \nFlusso Dati e Connettività\nIl flusso operativo segue la sequenza: Acquisizione → Preprocessing → Inferenza IA → Trasmissione.\nProtocolli di Comunicazione\nIl sistema deve supportare la trasmissione in ambienti chiusi o aperti:\nMQTT/MQTTS: Per connettività standard.\nLoRaWAN: Per lunghe distanze con payload limitati (≤ 51 byte).\nStruttura del Messaggio MQTT\nI dati trasmessi includono:\nID Sensore e Timestamp.\nID Campione (opzionale).\nArea in pixel.\nConfidence (affidabilità della previsione).\nStatus del sistema.\n-------------------------------------------------------------------------------- \nAnalisi dei Costi e Componenti (BOM)\nIl costo stimato per un prototipo basato su Raspberry Pi varia tra 220€ e 265€.\nComponenti principali:\nRaspberry Pi 4 (4GB): 80-120€\nArducam HQ Camera (12.3 MP): 45€\nTubo Estensore (C-mount): 13€\nAdattatore RMS-C: 10€\nObiettivo Microscopio (4x/10x): 20€\nAlimentatore USB-C (5V, ≥3A): 10€\nMicroSD 64GB\nLED: 12€\nNota: Una soluzione alternativa con zoom monoculare regolabile (300x/500x) ha un costo stimato tra 58€ e 65€.\nLa soluzione principale prevede l’uso di un tubo estensore, poiché gli obiettivi da microscopio necessitano di una distanza di circa 160mm dal sensore; la problematica più grande è la distanza di lavoro che risulta essere molto ridotta a seconda dell’obiettivo usato (circa15-30mm nel caso del 4x e circa 5-10mm per il 10x). Nel secondo prototipo invece, si ha un ingrandimento massimo di circa 4.5x (potrebbe bastare per rilevare le spore), ma una distanza di lavoro significativamente più ampia (circa 90-100mm).\n-------------------------------------------------------------------------------- \nQuestioni Aperte e Ricerca Futura\nIl progetto identifica diverse aree che richiedono ulteriore investigazione:\nBiologia delle Spore: Variabilità tra diversi organismi e definizione univoca del momento di germinazione (es. visibilità del tubetto germinativo).\nCondizioni Ambientali: Impatto della luce LED sulla germinazione e necessità di osservazione continua (ore).\nComputer Vision: Metodologie per distinguere le spore da artefatti come polvere, bolle o elementi simili per evitare falsi positivi.\nHardware: Valutazione della necessità di una vite micrometrica per la messa a fuoco del vetrino e gestione della distanza ottimale tra sensore e ottica (stimata in 15-16 cm tramite tubo distanziatore).\nRaspberry RevPi Core S: In questo momento si sta valutando la camera che può essere utilizzata con il dispositivo citato. In particolare, a differenza degli altri dispositivi Raspberry, questo non dispone di CSI (interfaccia per la camera), per cui è necessario rivalutare il prototipo. Una prima soluzione potrebbe essere l’utilizzo di una camera USB, collegandola alla corrispondente porta.\n",
+  "tables": [
+    {
+      "name": "table_1",
+      "columns": [
+        "Caratteristica",
+        "Raspberry Pi",
+        "ESP32"
+      ],
+      "rows": [
+        [
+          "Vantaggi",
+          "Debug semplificato, supporto OpenCV, RAM elevata, camera di qualità superiore.",
+          "Economico, compatto, bassi consumi."
+        ],
+        [
+          "Svantaggi",
+          "Costo elevato, consumi maggiori, ingombrante.",
+          "Debug difficile, RAM limitata, mancanza di OpenCV."
+        ],
+        [
+          "Modello IA",
+          "Modello \"pesante\"",
+          "TFLite Micro (Modello \"leggero\")."
+        ]
+      ]
+    }
+  ],
+  "metadata": {
+    "format": "docx",
+    "paragraph_count": 72,
+    "table_count": 1
+  },
+  "created_at": "2026-07-27T09:07:11.863385+00:00"
+}
