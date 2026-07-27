@@ -1,0 +1,1912 @@
+{
+  "project_id": "57f6a76e-e97a-418e-94b5-34a1020c7267",
+  "updated_at": "2026-07-27T09:11:19.552998+00:00",
+  "data": {
+    "schema_version": "1.0.0",
+    "current_maturity_step": 2,
+    "project": {
+      "sensor_name": {
+        "value": "Biosensore",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "project_code": {
+        "value": "BSN",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "responsible": {
+        "value": "Pierpaolo Paio",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "opening_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "document_version": {
+        "value": "0.1",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "client_context": {
+        "value": "Ricerca e sviluppo di biosensore per analisi spore fungine; integrazione con piattaforma Sentinel Robotics per monitoraggio e dashboard",
+        "sources": [
+          "Report ottava settimana.docx",
+          "Report seconda settimana.docx"
+        ],
+        "reasoning": "Esplicito nel testo: 'sistema di monitoraggio biologico automatizzato volto all'analisi delle spore e della loro velocità di germinazione' e 'trasmissione dei dati verso la piattaforma Sentinel Robotics'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_1_problem_requirements": {
+      "phenomenon_to_monitor": {
+        "value": "Germinazione di spore fungine (Aspergillus Niger) e loro dinamiche morfologiche nel tempo",
+        "sources": [
+          "Report seconda settimana.docx",
+          "Report quinta settimana.docx"
+        ],
+        "reasoning": "Dichiarato esplicitamente: 'analisi della spore e della loro velocità di germinazione', 'turgore cellulare e nell'aumento della densità del campione i parametri primari di rilevazione'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "event_to_detect": {
+        "value": "Rigonfiamento (swelling) della spora entro ~6 ore; comparsa del tubetto germinativo (ifa) entro ~12 ore; germinazione confermata quando lunghezza tubetto > diametro spora",
+        "sources": [
+          "Report quinta settimana.docx",
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Dichiarato esplicitamente: 'il turgore (aumento volumetrico di pochi micrometri) è visualizzabile dopo circa 6 ore, mentre la comparsa del tubetto germinativo (ifa) avviene mediamente dopo 12 ore' e 'Una spora è classificata come germinata solo quando la lunghezza del tubetto è superiore al diametro della spora stessa'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "expected_output": {
+        "value": "Dati strutturati in formato JSON; immagini annotate e frame debug; metriche biologiche (percentuale germinazione, area occupata, tempo di latenza)",
+        "sources": [
+          "Report prima settimana.docx",
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Dichiarato: 'Generazione di dati strutturati (es. JSON), memorizzazione locale su SD' e 'immagini annotate e immagini intermedie di debug'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "acquisition_frequency": {
+        "value": "1 immagine all'ora (durante stress test); frequenza variabile configurabile tramite script di acquisizione temporizzata",
+        "sources": [
+          "Report ottava settimana.docx",
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Esplicito: 'Il sistema ha acquisito ed elaborato 1 immagine all'ora per un periodo di 6 ore' e 'è stato implementato lo script per permettere l'acquisizione delle immagini dopo un certo intervallo di tempo specificato'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "installation_constraints": {
+        "value": "Assenza di interfaccia CSI su RevPi Core S; uso obbligatorio di camera USB per acquisizione",
+        "sources": [
+          "Report seconda settimana.docx"
+        ],
+        "reasoning": "Esplicito: 'a differenza degli altri dispositivi Raspberry, questo non dispone di CSI (interfaccia per la camera), per cui è necessario rivalutare il prototipo'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "operating_context": {
+        "value": "Indoor, laboratorio controllato; temperatura 20-30°C (standard), 30-34°C (test spinti); umidità 70-95% RH",
+        "sources": [
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Esplicito: 'Temperatura: 20-30°C per operatività standard; 30-34°C per test spinti su Aspergillus. Umidità: 70-90% RH per l'operatività di sicurezza; 90-95% RH come target ottimale'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "relevant_parameters": {
+      "temperature": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Dichiarato in matrice delle variabili: 'Temperatura: 20-30°C per operatività standard; 30-34°C per test spinti su Aspergillus' — Parametro ambientale monitorato e controllato: 20-30°C (operatività standard); 30-34°C (test accelerati su Aspergillus); rilevante per ottimizzazione germinazione",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "relative_humidity": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Esplicito in matrice: 'Umidità: 70-90% RH per l'operatività di sicurezza; 90-95% RH come target ottimale per stimolare la crescita iniziale' — Parametro ambientale critico: 70-90% RH per operatività di sicurezza; 90-95% RH come target ottimale per stimolare germinazione; monitoraggio continuo per gestione condensa",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "co_voc": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "pressure": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "luminosity": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "vibration_acceleration": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "movement_presence": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Esplicito: 'L'algoritmo potrebbe mantenere in memoria la sequenza \"inizio + precedente + attuale\" per ogni singola spora (assegnazione ID)' e 'il filamento viene ridotto a una linea di spessore unitario per misurarne la lunghezza' — Rilevazione della crescita e movimento morfologico della spora (tubetto germinativo); monitoraggio tramite temporal tracking con persistenza di stato e skeletonization",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "other": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report quinta settimana.docx",
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Dichiarato: 'la misurazione dell'aumento di densità e dell'area occupata è stata giudicata superiore' e parametri di segmentazione 'area, aspect ratio e stato di germinazione' — Area occupata dalla spora (in pixel e µm²); densità ottica e contrasto; forme e aspect ratio morfologiche",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_2_entry_criteria": {
+      "requirements_defined_and_shared": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "expected_output_approved": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_2_phenomenon_study": {
+      "characteristic_timescales": {
+        "value": "Ore (monitoraggio continuativo della germinazione)",
+        "sources": [
+          "Report seconda settimana.docx",
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Report quinta settimana e seconda settimana menzionano 'osservazione continua (ore)' e il sistema acquisisce '1 immagine all'ora per 6 ore' negli stress test",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "environmental_conditions": {
+        "value": "Temperatura 20-30°C (range operativo ottimale)",
+        "sources": [
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Report settima settimana specifica esplicitamente 'Range Operativo Ottimale e Sicurezza: Temperatura: 20-30°C'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "literature_thresholds": {
+        "value": "Concentrazione spore target: 10^5 (ordine di grandezza)",
+        "sources": [
+          "Report quinta settimana.docx"
+        ],
+        "reasoning": "Report quinta settimana menziona 'spore (target 10^5 di concentrazione)'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "applicable_standards": {
+        "value": "Teorema di Nyquist-Shannon (mappatura minima 30x30 pixel per particella 10µm)",
+        "sources": [
+          "Report seconda settimana.docx"
+        ],
+        "reasoning": "Report seconda settimana specifica: 'il sistema deve soddisfare i criteri del Teorema di Nyquist-Shannon, mappando ogni particella su un'area di almeno 30x30 pixel'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "consulted_sources": {
+        "value": "Conversazioni con biologo specialista",
+        "sources": [
+          "Report quarta settimana.docx"
+        ],
+        "reasoning": "Report quarta settimana esplicita 'conversazioni con il biologo' per chiarire principio di funzionamento, germinazione spore e configurazione supporto biologico",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_2_exit_checklist": {
+      "measured_quantities_identified": {
+        "value": "Numero di spore (count_spore) - campo 'count' nella struttura MQTT",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Report ottava settimana documenta nel payload JSON: 'count_spore: 12' come grandezza misurata",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "preliminary_thresholds_documented": {
+        "value": "Soglia risoluzione minima: 32 pixel per spora 10µm (soglia critica di segmentazione)",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Report terza settimana: 'Diametro Spora (10 µm): ≈ 38 pixel. Supera la soglia critica di 32 pixel fissata per una segmentazione di alta qualità'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_3_market_research": {
+      "candidate_1_model": {
+        "value": "Raspberry Pi 4 Model B 2GB + Raspberry Pi HQ Camera 12MP (C-Mount)",
+        "sources": [
+          "Report quarta settimana.docx"
+        ],
+        "reasoning": "Report quarta settimana specifica: 'Raspberry Pi 4 Model B da 2 GB abbinato alla Raspberry Pi HQ Camera da 12 MP con attacco C-mount'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_1_parameter": {
+        "value": "Numero di spore rilevate e parametri morfologici (area, perimetro, aspect ratio)",
+        "sources": [
+          "Report quarta settimana.docx",
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Configurazione principale del progetto misura spore mediante visione ottica con estrazione parametri geometrici",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_1_range": {
+        "value": "Sensori IMX219/IMX708: pixel pitch 1.4-1.12 µm, ingrandimento 4x-10x, risoluzione 29-71 pixel per spora 10µm",
+        "sources": [
+          "Report seconda settimana.docx",
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Report seconda settimana e terza settimana documentano analisi di risoluzione con questi sensori e ingrandimenti",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_1_cost": {
+        "value": "220-265 € (prototipo completo Raspberry Pi + ottica + alimentatore)",
+        "sources": [
+          "Report seconda settimana.docx"
+        ],
+        "reasoning": "Report seconda settimana: 'Il costo stimato per un prototipo basato su Raspberry Pi varia tra 220€ e 265€'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_1_interface": {
+        "value": "CSI (Camera Serial Interface) su Raspberry Pi 4; USB su Raspberry Pi RevPi Core S",
+        "sources": [
+          "Report quarta settimana.docx",
+          "Report seconda settimana.docx"
+        ],
+        "reasoning": "Report quarta settimana conferma HQ Camera su RPi 4 (CSI). Report seconda settimana menziona valutazione di camera USB per RevPi Core S",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_1_judgment": {
+        "value": "Adatto - Configurazione scelta e implementata nel progetto",
+        "sources": [
+          "Report quarta settimana.docx"
+        ],
+        "reasoning": "Report quarta settimana documenta che questa configurazione è stata 'modificata' come scelta finale, superando limitazioni di soluzioni alternative",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_2_model": {
+        "value": "Seeed Studio XIAO ESP32S3 Sense + adattatore 3D per obiettivo microscopio DIN",
+        "sources": [
+          "Report prima settimana.docx"
+        ],
+        "reasoning": "Report prima settimana descrive stack 'Hardcore Embedded' con 'Hardware: Seeed Studio XIAO ESP32S3 Sense. Ottica: Adattatore 3D per obiettivo da microscopio DIN'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_2_parameter": {
+        "value": "Numero di spore rilevate con risoluzione micrometrica variabile (0.26 µm/pixel a ingrandimento massimo)",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Report terza settimana calcola per Zongmai: 'Risoluzione al massimo ingrandimento (5.6x): 0.26 µm/pixel'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_2_range": {
+        "value": "Zoom Zongmai 0.7x-5.6x: risoluzione 0.26-1.85 µm/pixel, diametro spora ~38 pixel a massimo ingrandimento",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Report terza settimana analizza in dettaglio questa configurazione ottica con calcoli di risoluzione",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_2_cost": {
+        "value": "67 € (zoom Zongmai solamente)",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Report terza settimana: 'Questa soluzione (costo ~67€) è stata validata come OTTIMA'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_2_interface": {
+        "value": "USB (standard industriale) per ottica C/CS-mount",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Report terza settimana: 'l'adozione dello standard USB con attacco C/CS-mount permette di svincolarsi dall'ecosistema proprietario Raspberry Pi'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_2_judgment": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_3_model": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_3_parameter": {
+        "value": "Rilevamento spore biologiche (morfologia e germinazione)",
+        "sources": [
+          "Report prima settimana.docx",
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Parametro biologico primario del sistema di biosensing per spore di ~10 µm",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_3_range": {
+        "value": "Dimensioni spore: 10 µm; Risoluzione: ~0.26 µm/pixel (al massimo ingrandimento 5.6x)",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Range operativo specificamente caratterizzato per il rilevamento di Aspergillus Niger e morfologia fungina",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_3_cost": {
+        "value": "67€ (Zoom Ottico Zongmai 0.7x-5.6x)",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Costo della soluzione ottica validata come 'OTTIMA' per flessibilità operativa con sensore IMX415",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_3_interface": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_3_judgment": {
+        "value": "Adatto",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Zoom Ottico Zongmai esplicitamente validato come 'OTTIMA' per flessibilità operativa; supera soglia critica di 32 pixel per segmentazione ad alta qualità (38 pixel a 10 µm)",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_4_model": {
+        "value": "Obiettivo da Microscopio 10x (DIN/JIS)",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Sensore/ottica rappresentante lo standard di precisione per rilevamento avanzato di spore",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_4_parameter": {
+        "value": "Rilevamento morfologico spore biologiche ad alta risoluzione",
+        "sources": [
+          "Report terza settimana.docx",
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Parametro biologico con focus su precisione submillimetrica per fasi iniziali di germinazione",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_4_range": {
+        "value": "Specifiche 10x / 0.25 / 160 / 0.17; Risoluzione: 1 µm/pixel (circa 10 pixel per spora di 10 µm)",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Range ottico specificamente caratterizzato per obiettivo da microscopio DIN in configurazione standard",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_4_cost": {
+        "value": "20€ (Obiettivo 4x/10x) + 13€ (Tubo Estensore C-mount) + 10€ (Adattatore RMS-C)",
+        "sources": [
+          "Report seconda settimana.docx"
+        ],
+        "reasoning": "Costi componentistici espliciti per la configurazione ottica con obiettivo da microscopio DIN",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_4_interface": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_4_judgment": {
+        "value": "Adatto",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Rappresenta lo standard di precisione per rilevamento avanzato; supera soglia di pixel per segmentazione ad alta qualità; tuttavia presenta limitazione di distanza di lavoro (5-10 mm per 10x)",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "selected_solution": {
+        "value": "Zoom Ottico Zongmai (0.7x - 5.6x) + Sensore IMX415 + Raspberry Pi HQ Camera",
+        "sources": [
+          "Report terza settimana.docx",
+          "Report settima settimana.docx",
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Soluzione validata come 'OTTIMA' per flessibilità operativa; supera soglia critica di 32 pixel; fornisce risoluzione ottimale di 0.26 µm/pixel; costo contenuto (67€); implementata e testata nel setup hardware",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "selection_rationale": {
+        "value": "Risoluzione micrometrica ottimale (0.26 µm/pixel) per discriminare morfologia spore; flessibilità operativa dello zoom; costo accessibile; integrazione stabile con Raspberry Pi; validazione empirica confermata in 20 ore di stress test; calibrazione certificata (10 µm = 31 pixel)",
+        "sources": [
+          "Report terza settimana.docx",
+          "Report settima settimana.docx",
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Combinazione esplicita di fattori tecnici, biologici ed economici derivati da caratterizzazione formale e test operativi prolungati",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "competitor_comparison_required": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_3_exit_checklist": {
+      "at_least_three_alternatives_evaluated": {
+        "value": "Sì",
+        "sources": [
+          "Report prima settimana.docx",
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Documentazione evidenzia valutazione di: (1) OV2640 (2 MP), (2) Sony IMX477 (12 MP), (3) Zoom Ottico Zongmai, (4) Obiettivo Microscopio 10x; inoltre confronto tra stack 'Hardcore Embedded' (ESP32+Edge Impulse) e 'Research & Prototyping' (Raspberry Pi+OpenCV)",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "selected_sensor_meets_step1_requirements": {
+        "value": "Sì",
+        "sources": [
+          "Report prima settimana.docx",
+          "Report seconda settimana.docx",
+          "Report terza settimana.docx",
+          "Report nona settimana.docx",
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Soluzione selezionata soddisfa tutti i requisiti dichiarati: (1) Rilevamento presenza/assenza spore: confermato (count_spore=12, confidence=0.94); (2) Velocità germinazione: implementato tramite temporal tracking e state persistence; (3) Area occupata: calcolabile da 1133 pixel per spora a 10 µm; (4) Risoluzione 10 µm ≈ 31 pixel consente analisi morfologica critica (turgore cellulare, protrusione radichetta)",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_4_hardware_selection": {
+      "hardware_category": {
+        "value": "Edge computing",
+        "sources": [
+          "Report terza settimana.docx",
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Il progetto ha scelto Raspberry Pi come unità di elaborazione principale per OpenCV e analisi AI locale, declassando ESP32 come inadatto per OpenCV. Inoltre, è stata integrata una camera USB con sensore IMX415 per edge processing.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "category_rationale": {
+        "value": "Flessibilità di sviluppo in Python con OpenCV, supporto Linux, modularità ottica tramite standard USB/C-Mount, edge computing per ridurre consumi energetici di trasmissione, elaborazione locale con salvataggio dati su SD in caso di perdita connettività",
+        "sources": [
+          "Report prima settimana.docx",
+          "Report terza settimana.docx",
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Gli estratti esplicitamente dichiarano che Raspberry Pi garantisce 'maggiore flessibilità di sviluppo grazie a Linux e librerie complete come OpenCV' e che l'adozione dello standard USB permette 'svincolarsi dall'ecosistema proprietario' con 'stabilità operativa in ambiente Linux'.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "selected_mcu_sbc": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "communication_protocol": {
+        "value": "MQTT/MQTTS",
+        "sources": [
+          "Report seconda settimana.docx",
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Esplicitamente indicato come protocollo standard per connettività: 'MQTT/MQTTS: Per connettività standard'. Testato con stress test di affidabilità il 25/06/24.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "power_supply": {
+        "value": "Rete (USB-C 5V, ≥3A)",
+        "sources": [
+          "Report seconda settimana.docx"
+        ],
+        "reasoning": "BOM settimana 2 specifica 'Alimentatore USB-C (5V, ≥3A): 10€'. Non sono menzionati vincoli di batteria nel setup finale.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "battery_autonomy_estimate": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "pcb_notes": {
+        "value": "Supporto meccanico 'fai da te' per mantenere sensore in asse con campione; tubo estensore C-mount (13€) per rispettare lunghezza ottica di 160mm; adattatore RMS-C (10€) per interfaccia meccanica obiettivo; slitta verticale su asse Z per messa a fuoco; diffusore a LED opalino per illuminazione uniforme dal basso",
+        "sources": [
+          "Report terza settimana.docx",
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Settimana 7 e 3 descrivono esplicitamente l'implementazione fisica: 'supporto fai da te progettato per mantenere il sensore in asse', 'tubi di estensione: Necessari per rispettare la lunghezza ottica di 160 mm', 'slitta verticale sull'asse Z'. BOM settimana 2 elenca i componenti specifici.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_4_exit_checklist": {
+      "bom_preliminary_defined": {
+        "value": "Sì, BOM preliminare definita con stima di costo totale 220-265€",
+        "sources": [
+          "Report seconda settimana.docx"
+        ],
+        "reasoning": "Report settimana 2 presenta tabella completa: 'Raspberry Pi 4 (4GB): 80-120€, Arducam HQ Camera (12.3 MP): 45€, Tubo Estensore (C-mount): 13€, Adattatore RMS-C: 10€, Obiettivo Microscopio (4x/10x): 20€, Alimentatore USB-C (5V, ≥3A): 10€, MicroSD 64GB, LED: 12€'.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "unit_hardware_cost_documented": {
+        "value": "220-265€ per prototipo Raspberry Pi; alternativa zoom monoculare 58-65€",
+        "sources": [
+          "Report seconda settimana.docx"
+        ],
+        "reasoning": "Report settimana 2 dichiara esplicitamente: 'Il costo stimato per un prototipo basato su Raspberry Pi varia tra 220€ e 265€' con dettagli componente per componente.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_5_prototyping": {
+      "p0_objective": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p0_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p0_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p1_objective": {
+        "value": "Integrazione del sensore biologico (spore di Aspergillus Niger) e validazione dell'algoritmo di rilevamento: test del sistema di acquisizione con campioni biologici reali, implementazione della segmentazione OpenCV con maschere doppie, tracking temporale con persistenza di stato (ID spora), e definizione dei criteri di germinazione basati su turgore cellulare e area occupata",
+        "sources": [
+          "Report quinta settimana.docx",
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Report settimana 5 specifica 'scelta di operare prioritariamente con Aspergillus Niger' e definisce 'criteri biologici univoci' basati su 'turgore cellulare e aumento della densità'. Report settimana 7 descrive 'logiche di miglioramento' con 'temporal tracking' e 'state persistence'.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "p1_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p1_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p2_objective": {
+        "value": "Implementazione del flusso comunicativo completo e validazione del payload JSON: test della trasmissione MQTT/MQTTS verso broker, struttura JSON standardizzata (device_id, timestamp, frame_id, dati ambientali, risultati AI), salvataggio locale su SD in caso di perdita connettività, implementazione del classificatore su feature con scikit-learn (precision, recall, classification report)",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Report settimana 8 descrive esplicitamente 'payload JSON standardizzato', 'comunicazione con il broker MQTT', 'stress test 25/06/24' con 'salvataggio locale dei payload JSON in caso di mancata connettività'. Report settimana 8 riferisce anche del 'classification report di scikit-learn'.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "p2_date": {
+        "value": "25/06/2024 (stress test di affidabilità)",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Report settimana 8 specifica 'In data 25/06/24, sono stati condotti stress test' con simulazione di assenza di rete e acquisizione per 6 ore.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "p2_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p3_objective": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p3_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p3_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p4_objective": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p4_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p4_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "datasheet_draft_started_from_prototype": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "critical_notes_emerged": {
+        "value": "Distanza di lavoro estremamente ridotta per obiettivo 10x (5-7 mm), critica per il campionamento",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Report terza settimana dichiara esplicitamente: 'Working Distance (WD) estremamente ridotta (5-7 mm)'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_6_calibration": {
+      "calibration_type": {
+        "value": "In fabbrica (mediante vetrino micrometrico)",
+        "sources": [
+          "Report nona settimana.docx",
+          "Report quinta settimana.docx"
+        ],
+        "reasoning": "Report nona settimana: 'La calibrazione iniziale rappresenta il pilastro su cui poggia la validità scientifica dell'intero progetto. Stabilire una correlazione univoca tra le unità di misura fisiche (micron) e le unità di misura digitali (pixel)' con processo standardizzato; Report quinta settimana menziona 'vetrino micrometrico' come strumento di calibrazione",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "certified_reference_sample": {
+        "value": "Vetrino micrometrico",
+        "sources": [
+          "Report settima settimana.docx",
+          "Report quinta settimana.docx"
+        ],
+        "reasoning": "Report settima settimana: 'Si sta valutando l'acquisto di un vetrino micrometrico per permettere una corretta calibrazione µm/pixel'; Report quinta settimana: 'calibrazione dell'illuminazione tramite oggetto noto (es. vetrino micrometrico)'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "recalibration_frequency": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "drift_verification_method": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "accepted_tolerance": {
+        "value": "Risoluzione minima 38 pixel per spora da 10 µm (soglia critica 32 pixel per segmentazione alta qualità)",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Report terza settimana: 'Diametro Spora (10 µm): ≈ 38 pixel. Supera la soglia critica di 32 pixel fissata per una segmentazione di alta qualità' (configurazione Zongmai 5.6x)",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "procedure_documented_in": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_6_exit_checklist": {
+      "calibration_curve_documented": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "field_recalibration_procedure_written": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      }
+    },
+    "step_7_data_collection": {
+      "raw_data_collected": {
+        "value": "Immagini microscopiche acquisite tramite Raspberry Pi HQ Camera (12.3 MP, IMX477 o IMX415) con illuminazione LED 6000K-6500K in scala di grigi; parametri morfologici estratti: area in pixel, aspect ratio, perimetro, densità cellulare",
+        "sources": [
+          "Report prima settimana.docx",
+          "Report terza settimana.docx",
+          "Report quinta settimana.docx"
+        ],
+        "reasoning": "Report prima settimana: 'Acquisizione: Utilizzo di LED bianchi (6000K-6500K) con diffusore per un contrasto ottimale'; Report terza settimana: 'OpenCV: Utilizzata per la segmentazione, l'estrazione dei contorni e il calcolo dei parametri geometrici (area, perimetro, aspect ratio)'; Report quinta settimana: 'misurazione dell'aumento di densità e dell'area occupata'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "metadata_included": {
+        "value": "device_id, device_type, timestamp (ISO 8601), frame_id, confidence (affidabilità predizione), status di sistema",
+        "sources": [
+          "Report ottava settimana.docx",
+          "Report seconda settimana.docx"
+        ],
+        "reasoning": "Report ottava settimana esplicita la struttura JSON: 'device_id': 'BIO-PI-01', 'device_type': 'optical_biosensor', 'timestamp': '2024-06-25T10:30:00Z', 'frame_id': '1042' e Report seconda settimana: 'ID Sensore e Timestamp', 'Confidence (affidabilità della previsione)', 'Status del sistema'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "context_information": {
+        "value": "Temperatura (20-30°C standard, 30-34°C test spinti), Umidità (70-90% RH operatività, 90-95% RH target), Illuminazione (trasmessa/obliqua costante), timestamp ISO 8601, frame_id, device_id, device_type",
+        "sources": [
+          "Report settima settimana.docx",
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Esplicitamente documentato nella matrice delle variabili ambientali della settimana 7 e nello schema JSON di settimana 8",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "anomalous_reading_handling": {
+        "value": "Salvataggio locale in formato JSON con diagnostics (stato dispositivo, salvataggio locale attivo) per rilevamento anomalie prima della compromissione del dato",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Documentato esplicitamente in settimana 8: la sezione diagnostics monitora connessione e salvataggio locale per manutenzione predittiva",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "unresponsive_sensor_handling": {
+        "value": "Utilizzo di systemd per automazione processi di avvio (script run-sensor.sh, entry point main.py), gestione automatica riavvii in caso di crash, sistema headless",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Esplicitamente dichiarato in settimana 8 come scelta strategica per resilienza in campo",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "drift_over_time_handling": {
+        "value": "Calibrazione formale tramite vetrino micrometrico con mappatura µm/pixel; ripetibilità del fuoco tramite slitta Z-axis per stabilità meccanica; validazione in campo mediante acquisizione dati grezzi e metadati",
+        "sources": [
+          "Report terza settimana.docx",
+          "Report quinta settimana.docx",
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Documentato in settimana 3, 5 e 9: calibrazione 29 giugno confermò 10 µm ≈ 31 pixel; settimana 3 evidenzia necessità calibrazione fisica per confermare rapporto µm/pixel",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "storage_buffer_enabled": {
+        "value": "Sì, storage locale attivo",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Esplicitamente dichiarato nella sezione diagnostics del payload JSON (settimana 8) e confermato da stress test di settimana 8 che verificò salvataggio payload JSON in caso di mancata connettività",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "storage_buffer_capacity": {
+        "value": "Non specificato nei documenti",
+        "sources": [],
+        "reasoning": "Nessun valore esplicito di capacità (es. numero di payload, dimensione in MB) è dichiarato negli estratti",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "buffer_flush_policy": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_7_exit_checklist": {
+      "dataset_collected_in_real_conditions": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "anomalies_documented_and_classified": {
+        "value": "Architettura a due stadi: OpenCV come candidate detector (primo stadio); classificatore su feature con salvataggio feature in CSV e label manuale (secondo stadio). Validazione tramite precision, recall, F1-score di scikit-learn",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Settimana 8 documenta esplicitamente metodologia di validazione con distinzione tra anomalie dovute a polvere/artefatti vs. spore biologiche, con metriche di classificazione",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_8_analysis_thresholds_ai": {
+      "intelligence_level": {
+        "value": "ML/AI: Random Forest leggero (mandatorio per embedded); evoluzione verso CNN leggera (TensorFlow Lite quantizzato INT8)",
+        "sources": [
+          "Report terza settimana.docx",
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Settimana 3 e 8 dichiarano roadmap AI esplicita: OpenCV per segmentazione deterministica; TensorFlow Lite con quantizzazione INT8 per classificazione probabilistica; addestramento Random Forest pianificato",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "level_rationale": {
+        "value": "La segmentazione OpenCV pura non è sufficiente a distinguere spore biologiche da polvere/artefatti; necessaria classificazione su feature con ML. Random Forest scelto per robustezza e efficienza embedded; CNN leggera pianificata per miglioramento discriminazione futura. Quantizzazione INT8 mandatoria per massimizzare efficienza su Raspberry Pi",
+        "sources": [
+          "Report terza settimana.docx",
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Settimana 8 dichiara esplicitamente che OpenCV potrebbe non bastare e che è necessaria fase successiva di validazione con classificatore su feature. Roadmap AI di settimana 3 giustifica scelta TensorFlow Lite INT8 per vincoli di risorse",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "threshold_1_parameter": {
+        "value": "count_spore (numero spore rilevate per frame)",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Schema JSON di settimana 8 mostra 'count_spore: 12' come parametro misurato con 'confidence: 0.94'; payload include anche 'evento rilevato: superamento soglia spore'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "threshold_1_attention": {
+        "value": "Non specificato nei documenti",
+        "sources": [],
+        "reasoning": "Nessun valore numerico di soglia di attenzione per count_spore è dichiarato negli estratti",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "threshold_1_alarm": {
+        "value": "Non specificato nei documenti",
+        "sources": [],
+        "reasoning": "Nessun valore numerico di soglia di allarme per count_spore è dichiarato negli estratti; solo evento generico 'superamento soglia spore' è menzionato",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "threshold_1_min_duration": {
+        "value": "Non specificato nei documenti",
+        "sources": [],
+        "reasoning": "Nessuna durata minima di superamento è dichiarata negli estratti",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "threshold_1_action": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_2_parameter": {
+        "value": "confidence (livello di confidenza della rilevazione)",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Schema JSON settimana 8 mostra 'confidence: 0.94' come parametro monitorato accanto a count_spore",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "threshold_2_attention": {
+        "value": "Non specificato nei documenti",
+        "sources": [],
+        "reasoning": "Nessun valore numerico di soglia di attenzione per confidence è dichiarato; solo valore di esempio (0.94) è mostrato nello schema JSON",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "threshold_2_alarm": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_2_min_duration": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_2_action": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_parameter": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_attention": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_alarm": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_min_duration": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_action": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "model_input_variables": {
+        "value": "area occupata spora (pixel), aspect ratio, stato di germinazione",
+        "sources": [
+          "Report nona settimana.docx",
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Esplicitamente indicati come parametri geometrici estratti da OpenCV per l'analisi morfologica durante le fasi iniziali della germinazione",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "model_type": {
+        "value": "classificazione",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Sistema a due stadi: OpenCV per candidate detection e classificatore su feature per distinguere spore da artefatti (polvere, bolle). Valutazione tramite precision e recall su scikit-learn",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "training_dataset_available": {
+        "value": "Sì, in costruzione con etichettatura manuale",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Esplicitamente descritto il processo di salvataggio di feature in file CSV con label assegnate manualmente per l'addestramento del classificatore",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "validation_metrics_target": {
+        "value": "Precision, Recall, classification report scikit-learn",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Metriche esplicitamente citate per valutare le prestazioni del classificatore: rapporto tra spore correttamente identificate (precision) e capacità di individuare tutte le spore (recall)",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_9_data_contract": {
+      "device_id": {
+        "value": "BIO-PI-01",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Identificativo univoco esplicitamente riportato nell'esempio di payload JSON standardizzato",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "device_type": {
+        "value": "optical_biosensor",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Tipo di device esplicitamente dichiarato nella struttura JSON del payload per la comunicazione MQTT",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "timestamp": {
+        "value": "ISO 8601 (2024-06-25T10:30:00Z)",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Formato timestamp esplicitamente mostrato nell'esempio di payload JSON: 'YYYY-MM-DDTHH:MM:SSZ'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "frame_id": {
+        "value": "Identificativo numerico stringa (es. '1042')",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Dichiarato nella struttura JSON del payload come identificativo del frame o pacchetto dati acquisiti",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "measurement_field_1": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_field_2": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_field_3": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "processed_indicator_1": {
+        "value": "count_spore (numero di spore rilevate)",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Primo indicatore elaborato esplicitamente incluso nella sezione 'processed_data' del payload JSON",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "processed_indicator_2": {
+        "value": "confidence (confidenza della rilevazione, es. 0.94)",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Secondo indicatore elaborato esplicitamente incluso nella sezione 'processed_data' del payload JSON come livello di confidenza",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "connection_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "local_storage_status": {
+        "value": "meccanismo di salvataggio locale dei payload JSON in caso di mancata connettività",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Esplicitamente menzionato nel Report ottava settimana: 'Verificato con successo il meccanismo di salvataggio locale dei payload JSON in caso di mancata connettività'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "event_detected": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_9_transport_config": {
+      "mqtt_topic_endpoint": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "serialization_format": {
+        "value": "JSON",
+        "sources": [
+          "Report ottava settimana.docx",
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Report ottava settimana afferma: 'È stato definito un payload JSON standardizzato e flessibile, essenziale per la comunicazione con il broker MQTT.' Report settima settimana conferma: 'È stato definito un payload JSON standardizzato'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "sentinel_alignment_confirmed_by": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "sentinel_alignment_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_9_exit_checklist": {
+      "payload_approved_by_tech_lead": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "parsing_test_passed": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      }
+    },
+    "step_10_field_validation": {
+      "continuous_operation_method": {
+        "value": "stress test con acquisizione di 1 immagine all'ora per 6 ore (25/06/24), poi test di circa 20 ore (30 giugno)",
+        "sources": [
+          "Report ottava settimana.docx",
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Report ottava settimana: 'Il sistema ha acquisito ed elaborato 1 immagine all'ora per un periodo di 6 ore.' Report nona settimana: 'è stato eseguito un secondo test della durata di circa 20 ore, conclusosi con successo.'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "continuous_operation_outcome": {
+        "value": "OK (primo test 6 ore), OK (secondo test ~20 ore)",
+        "sources": [
+          "Report ottava settimana.docx",
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Report ottava settimana conferma acquisizione continua per 6 ore. Report nona settimana: 'secondo test della durata di circa 20 ore, conclusosi con successo'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "continuous_operation_notes": {
+        "value": "Primo test (6h) completato. Secondo test (20h) riuscito dopo debug della stabilità di rete SSH. Implementazione di modulo MOSFET/RELÈ per controllo illuminazione raccomandata per minimizzare input termico.",
+        "sources": [
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Report nona settimana dettagli: primo test interrotto dopo 10 ore per failure SSH, secondo test eseguito con successo dopo debugging. Necessità di sincronizzare LED solo al momento dello scatto.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "connection_loss_method": {
+        "value": "simulazione di assenza di rete disabilitando la porta di destinazione del broker",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Report ottava settimana: 'Stress Test: Simulazione di assenza di rete disabilitando la porta di destinazione del broker.'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "connection_loss_outcome": {
+        "value": "OK",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Report ottava settimana conferma: 'Verificato con successo il meccanismo di salvataggio locale dei payload JSON in caso di mancata connettività.'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "connection_loss_notes": {
+        "value": "Salvataggio locale JSON verificato. Rimane da verificare rinvio automatico dati al ripristino collegamento. Report nona settimana evidenzia failure SSH come criticità rischio inaccettabile per continuità flusso dati.",
+        "sources": [
+          "Report ottava settimana.docx",
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Report ottava settimana: 'Rimane da verificare se al ripristino del collegamento, il sistema procede al rinvio automatico dei dati accumulati.' Report nona settimana descrive failure SSH come problema di continuità.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "power_interruption_method": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "power_interruption_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "power_interruption_notes": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_repeatability_method": {
+        "value": "Calibrazione tramite vetrino micrometrico e microsfere da 10 µm per verificare la risoluzione effettiva e la ripetibilità del fuoco",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Metodologia esplicita per validare la ripetibilità delle misure ottiche del sistema",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "measurement_repeatability_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_repeatability_notes": {
+        "value": "Risoluzione al massimo ingrandimento (5.6x): 0.26 µm/pixel; Diametro Spora (10 µm) ≈ 38 pixel, supera la soglia critica di 32 pixel per segmentazione di alta qualità",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Risultati specifici sulla ripetibilità ottica e capacità di discriminazione del sistema",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "thermal_stress_method": {
+        "value": "Stress test con monitoraggio di una goccia d'acqua su vetrino a frequenza di 1 fotogramma/ora, con monitoraggio costante della temperatura della CPU del Raspberry Pi",
+        "sources": [
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Metodologia esplicita di test termico descritta nel report della nona settimana",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "thermal_stress_outcome": {
+        "value": "OK - Raspberry Pi rimasto termicamente stabile per 20 ore",
+        "sources": [
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Esito positivo del secondo test di stress termico, sebbene il primo si sia interrotto dopo 10 ore per failure SSH",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "thermal_stress_notes": {
+        "value": "Primo test interrotto dopo 10 ore a causa di failure della connessione SSH; secondo test concluso con successo dopo circa 20 ore. Raspberry Pi rimasto termicamente stabile in entrambi i casi",
+        "sources": [
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Dettagli espliciti sui risultati dei test termici e su anomalie riscontrate",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "buffer_saturation_method": {
+        "value": "Test del meccanismo di salvataggio locale dei payload JSON in caso di mancata connettività, con disabilitazione della porta di destinazione del broker",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Metodologia esplicita per validare il buffer locale e la gestione della saturazione",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "buffer_saturation_outcome": {
+        "value": "OK - Verificato con successo il meccanismo di salvataggio locale dei payload JSON in caso di mancata connettività",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Esito positivo del test di buffer locale dichiarato esplicitamente",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "buffer_saturation_notes": {
+        "value": "Rimane da verificare se al ripristino del collegamento il sistema procede al rinvio automatico dei payload salvati localmente",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Critica operativa residua sul comportamento di recovery post-connessione",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "test_environment": {
+        "value": "Campana di test a pallone divisa in due comparti: sezione inferiore con acqua e sali per regolazione igroscopica, sezione superiore con sensore e campione",
+        "sources": [
+          "Report quinta settimana.docx"
+        ],
+        "reasoning": "Descrizione esplicita dell'ambiente di test biologico controllato",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "test_campaign_duration": {
+        "value": "Secondo stress test della durata di circa 20 ore, conclusosi con successo (02 luglio 2024)",
+        "sources": [
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Durata esplicita della campagna di test di validazione termica e di connettività",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "anomalies_detected": {
+        "value": "Failure della connessione SSH dopo 10 ore nel primo stress test del 30 giugno",
+        "sources": [
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Anomalia esplicita rilevata durante la validazione in campo",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "corrective_actions_applied": {
+        "value": "Intervento di debugging sulla stabilità di rete seguito da esecuzione di un secondo test della durata di circa 20 ore",
+        "sources": [
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Azione correttiva esplicita applicata a seguito dell'anomalia di connessione SSH",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "validation_approved_by": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_10_exit_checklist": {
+      "all_tests_passed": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "no_open_critical_anomalies": {
+        "value": "No - Rimane aperta la verifica del rinvio automatico dei payload al ripristino della connessione MQTT",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "La documentazione esplicita una criticità residua non ancora risolta",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "validation_dataset_archived": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "repeatability_within_tolerance": {
+        "value": "Sì - Risoluzione al massimo ingrandimento (5.6x): 0.26 µm/pixel; Area occupata da spora 10 µm ≈ 1133 pixel, con densità di dati sufficiente per ROI in OpenCV",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "I parametri di risoluzione dichiarati soddisfano i criteri di tolleranza definiti per la segmentazione ad alta qualità (soglia 32 pixel per spora da 10 µm)",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_11_final_documentation": {
+      "technical_datasheet_version": {
+        "value": "bozza",
+        "sources": [
+          "Report quarta settimana.docx"
+        ],
+        "reasoning": "Nel Report quarta settimana è esplicitamente dichiarato: 'è stata avviata la stesura della bozza della scheda tecnica del sensore'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "technical_datasheet_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "technical_datasheet_status": {
+        "value": "bozza",
+        "sources": [
+          "Report quarta settimana.docx"
+        ],
+        "reasoning": "Confermato dal Report quarta settimana che dichiara l'avvio della 'bozza della scheda tecnica'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "user_manual_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "user_manual_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "user_manual_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "installation_manual_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "installation_manual_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "installation_manual_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "calibration_procedure_doc_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "calibration_procedure_doc_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "calibration_procedure_doc_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "firmware_release_notes_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "firmware_release_notes_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "firmware_release_notes_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "final_bom_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "final_bom_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "final_bom_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "code_repository_branch_tag": {
+        "value": "commit 8/06/2026: fcdf845",
+        "sources": [
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Commit specifico formalizzante le modifiche strutturali al codice guidate dalla comprensione biologica del fenomeno",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "final_firmware_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "code_optimized_post_validation": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "rd_manager_name": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "rd_manager_date_signature": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "ai_tech_lead_name": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "ai_tech_lead_date_signature": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "delivery_lead_name": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "delivery_lead_date_signature": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "project_closure_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "lessons_learned": {
+        "value": "La transizione da approccio software-driven a strategia hardware-centrica è fondamentale: l'IA non può ricostruire informazioni non acquisite fisicamente dal sistema ottico (regola dei pixel con soglia minima 15-30 pixel per spora da 10µm)",
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Dichiarato esplicitamente nella settimana 3 come 'punto di svolta decisivo' e 'principio ingegneristico fondamentale'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "reusable_components_for_future_projects": {
+        "value": "Protocollo di calibrazione ottica con vetrino micrometrico (conversione µm-pixel certificata: ~31 pixel per 10µm) e metodologia di risoluzione formale del setup",
+        "sources": [
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Documentato nella settimana 9 come 'calibrazione formale' eseguita il 29 giugno con risultati quantificati, riutilizzabile per altri sistemi bio-imaging",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    }
+  }
+}
