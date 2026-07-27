@@ -1,0 +1,48 @@
+{
+  "filename": "Report quinta settimana.docx",
+  "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "size_bytes": 17816,
+  "kind": "other",
+  "notes": null,
+  "parsing_status": "success",
+  "parsing_warnings": [],
+  "text_content": "Report quinta settimana\n1. Sintesi Strategica dell'Avanzamento Settimanale\nL'attività della quinta settimana ha segnato il passaggio critico dalla fase di test isolati alla convergenza sistemica tra validazione biologica e infrastruttura di monitoraggio digitale. Il focus è stato l'allineamento tra la cinetica di germinazione delle spore e la calibrazione del sistema Raspberry Pi/HQ Camera. L'integrazione di questi due domini è il prerequisito fondamentale per trasformare un evento biologico dinamico in un flusso di dati digitali quantificabili, garantendo la precisione necessaria per la prototipazione di un sensore automatizzato ad alta affidabilità.\nDi seguito, la tabella riassuntiva degli obiettivi raggiunti:\nLa scelta di operare prioritariamente con Aspergillus Niger (costo stimato 150-200 euro) risulta strategica in questa fase: la sua rapidità di crescita rispetto a specie come Aspergillus Penicilloides consente di accelerare la validazione del setup hardware, riducendo i tempi di attesa tra i cicli sperimentali e facilitando la creazione di una base biologica solida per la successiva configurazione dell'ambiente di test.\n2. Caratterizzazione Biologica e Dinamiche di Germinazione\nPer l'automazione del sensore, è imperativo definire criteri biologici univoci che minimizzino l'ambiguità algoritmica. Abbiamo identificato nel turgore cellulare e nell'aumento della densità del campione i parametri primari di rilevazione. Questi indicatori precedono e accompagnano la fase di germinazione, permettendo una distinzione netta tra lo stato quiescente e l'attività metabolica attiva.\nLa caratterizzazione ha messo a confronto due specie chiave:\nAspergillus Penicilloides: Organismo xerofilo (si sviluppa in ambienti aridi), ideale per scenari di scarsità d'acqua ma caratterizzato da una cinetica di crescita lenta.\nAspergillus Niger: Scelto per la fase di test per la velocità di risposta e l'abbondante produzione di spore.\nLe spore analizzate presentano dimensioni comprese tra 3 e 7/8 µm. Il protocollo di monitoraggio segue finestre temporali precise: il turgore (aumento volumetrico di pochi micrometri) è visualizzabile dopo circa 6 ore, mentre la comparsa del tubetto germinativo (ifa) avviene mediamente dopo 12 ore. Ai fini dell'automazione, la misurazione dell'aumento di densità e dell'area occupata è stata giudicata superiore alla misurazione della lunghezza del tubetto germinativo; quest'ultimo, crescendo, potrebbe uscire dal campo visivo di 4 mm^2, rendendo il dato parziale o inutilizzabile. La stabilità del campione è garantita: una volta depositate nel pozzetto, le spore rimangono ferme, permettendo un monitoraggio continuo dello stesso punto.\n3. Configurazione del Setup Sperimentale e Controllo Ambientale\nLa replicabilità dei dati biologici è subordinata al controllo rigoroso delle variabili ambientali. Il setup attuale prevede una \"campana\" di test concepita come una struttura a pallone divisa in due comparti: una sezione inferiore contenente acqua e sali per la regolazione igroscopica e una superiore dedicata all'alloggiamento del sensore e del campione. Sebbene la germinazione possa iniziare a un'umidità relativa del 68%, il target ottimale per la saturazione della campana è stato fissato tra l'80% e il 95%.\nL'integrità del supporto è stata oggetto di analisi specifica:\nMembrane Igroscopiche: L'uso di acetato di cellulosa garantisce uno scambio continuo di vapore, regolando l'umidità interna ed evitando condensazioni parassite.\nSupporto Planare: Per risolvere i problemi di tensione delle membrane, il protocollo suggerisce l'impiego di cellulosa rigenerata da laboratorio (cellophane) montata su telaio rigido. Questa soluzione assicura una superficie tesa e planare, fondamentale per mantenere il fuoco ottico costante.\nMateriali valutati: Sono stati testati film fotografici, PE e triacetati di cellulosa; tuttavia, il supporto rigido rimane la scelta preferenziale per ridurre le interferenze meccaniche durante l'acquisizione.\nQuesta stabilità fisica permette di procedere alla fase di acquisizione digitale tramite l'infrastruttura hardware dedicata.\n4. Infrastruttura Hardware e Integrazione Software\nL'infrastruttura di monitoraggio remoto è centrata su piattaforma Raspberry Pi, configurata come unità di elaborazione Edge. Per garantire la massima efficienza dei processi, il sistema opera in modalità Headless (senza interfaccia desktop). È stata esplicitamente rigettata l'opzione Raspberry Pi Connect a favore di una gestione via SSH ed estensione VSCode Remote, riducendo l'overhead del sistema operativo.\nIl workflow di configurazione ha seguito passaggi tecnici rigorosi:\nInizializzazione: Flash dell'OS tramite Raspberry Pi Imager e configurazione dei parametri di rete.\nGestione Dipendenze: Utilizzo del packet manager uv per l'isolamento dell'ambiente. Comando critico eseguito: uv venv --system-site-packages per garantire l'accesso alle librerie di sistema come Picamera2.\nCore Libraries: Installazione di OpenCV e NumPy per il processing dell'immagine.\nTesting Modulare: Il codice è stato preventivamente validato \"senza camera\" utilizzando dataset locali, garantendo la robustezza della logica di analisi prima dell'integrazione hardware.\nL'integrazione della HQ Camera introduce la necessità della calibrazione micrometro/pixel mediante oggetto noto (es. vetrino micrometrico). Senza questo passaggio, ogni misurazione biologica rimarrebbe una mera stima priva di valore scientifico. Tale calibrazione è il ponte che permette di visualizzare con precisione i fenomeni di turgore precedentemente descritti.\n5. Validazione del Sistema di Visione e Prototipazione Ottica\nIl successo della rilevazione automatica dipende dalla capacità del sistema di distinguere le spore (target 10^5 di concentrazione) da falsi positivi quali polvere, bolle d'aria o artefatti visivi. Durante la fase di calibrazione dell'illuminazione, particolare attenzione sarà posta alla mitigazione di aloni, bordi e riflessi generati dall'interazione tra la luce e la membrana di cellulosa.\nSpecifiche tecniche del setup ottico:\nOttica: Obiettivo 10x con risoluzione fino a 4 µm, ottimale per la dimensione delle spore (3-7/8 µm).\nSupporto Campione: Pozzetti con diametro di 0,5 cm, altezza compresa tra 6 mm e 10 mm e spessore di 1 mm. Il fondo piatto è obbligatorio per garantire la planarità del piano focale rispetto ai pozzetti concavi.\nArchitettura Meccanica: Sebbene il setup SeedStudio sia eccellente per esperimenti sulla luce, la CoreBox UC2 sarebbe preferita per le analisi biologiche grazie alla modularità dei suoi cubi da 50x50x50 mm, che offrono una flessibilità superiore nell'alloggiamento dei componenti.\nParametri Operativi: Acquisizione di una foto all'ora. L'illuminazione LED viene attivata esclusivamente durante lo scatto per prevenire stress termici sul campione.\n6. Prospettive di Sviluppo e Gestione delle Criticità\nL'avanzamento del progetto è solido, ma l'analisi R&D ha evidenziato criticità operative che richiedono risoluzione immediata. La gestione del cablaggio all'interno della campana sigillata e la prevenzione della contaminazione tra ceppi di spore differenti rappresentano le priorità per la prossima settimana.\nSul piano biotecnologico, l'eventuale sviluppo futuro verso sensori basati su Green Fluorescent Protein (GFP) è stato classificato come attività ad alta complessità, richiedente competenze biotecnologiche avanzate per l'integrazione tra segnalazione biologica e sensore fisico.\nI prossimi step operativi includono:\nImplementazione di servizi systemd per l'automatizzazione dei processi di avvio (script run-sensor.sh).\nConfigurazione di un sistema di salvataggio locale dei dati per garantire la continuità del dataset in caso di interruzione della connessione MQTT.\nIl progresso registrato conferma la correttezza della direzione intrapresa, consolidando le basi per un \"Sensore Biologico\" pienamente funzionale e autonomo.\nIn questo momento si sta attendendo l’arrivo della camera HQ per procedere al montaggio e alla calibrazione, necessaria per avviare la fase di test.\n",
+  "tables": [
+    {
+      "name": "table_1",
+      "columns": [
+        "Obiettivo",
+        "Stato",
+        "Note Strategiche"
+      ],
+      "rows": [
+        [
+          "Selezione della specie fungina",
+          "Completato",
+          "Scelta di Aspergillus Niger per ottimizzare i cicli di test (12h vs tempi xerofili)."
+        ],
+        [
+          "Hardware & Environment",
+          "Completato",
+          "Setup Raspberry Pi OS (Headless) e configurazione campana a umidità controllata."
+        ],
+        [
+          "Criteri di Rilevazione",
+          "Definito",
+          "Priorità alla variazione di densità e turgore rispetto alla sola morfologia."
+        ],
+        [
+          "Workflow Software",
+          "Validato",
+          "Implementazione ambiente uv e test \"camera-less\" superati."
+        ]
+      ]
+    }
+  ],
+  "metadata": {
+    "format": "docx",
+    "paragraph_count": 42,
+    "table_count": 1
+  },
+  "created_at": "2026-07-27T09:07:11.819202+00:00"
+}
