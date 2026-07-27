@@ -1,6 +1,6 @@
 {
   "project_id": "57f6a76e-e97a-418e-94b5-34a1020c7267",
-  "updated_at": "2026-07-27T09:11:19.552998+00:00",
+  "updated_at": "2026-07-27T13:32:59.266663+00:00",
   "data": {
     "schema_version": "1.0.0",
     "current_maturity_step": 2,
@@ -61,7 +61,7 @@
         ],
         "reasoning": "Esplicito nel testo: 'sistema di monitoraggio biologico automatizzato volto all'analisi delle spore e della loro velocità di germinazione' e 'trasmissione dei dati verso la piattaforma Sentinel Robotics'",
         "confidence": "high",
-        "approval_status": "proposed",
+        "approval_status": "approved",
         "user_notes": null
       }
     },
@@ -173,19 +173,27 @@
         "user_notes": null
       },
       "luminosity": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report terza settimana.docx"
+        ],
+        "reasoning": "Esplicitamente menzionato nella configurazione ottica per garantire sfondo uniforme e facilitare segmentazione — Rilevante - LED bianco con diffusore opalino per illuminazione uniforme",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "vibration_acceleration": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Più volte sottolineato che oscillazioni del sensore compromettono validità statistica delle misure — Rilevante - Stabilità meccanica critica per prevenire blur cinetico",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "movement_presence": {
@@ -630,11 +638,13 @@
         "user_notes": null
       },
       "selected_mcu_sbc": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": "Raspberry Pi 4 (4GB) - prototipazione e addestramento",
+        "sources": [
+          "Report seconda settimana.docx"
+        ],
+        "reasoning": "Esplicitamente identificato come 'strumento ideale per prototipazione e addestramento'",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "communication_protocol": {
@@ -702,27 +712,34 @@
     },
     "step_5_prototyping": {
       "p0_objective": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": "Validazione della pipeline ottica e algoritmica per rilevamento spore 10µm con risoluzione target ≥32 pixel",
+        "sources": [
+          "Report terza settimana.docx",
+          "Report seconda settimana.docx"
+        ],
+        "reasoning": "Breadboard base focalizzato su acquisizione ottica e preprocessing, soglia critica di 32 pixel per segmentazione esplicita",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "p0_date": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": "29 giugno 2024 - Calibrazione formale con vetrino micrometrico",
+        "sources": [
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Data esplicita per validazione ottica e calibrazione micrometro/pixel, primo test funzionale del sistema",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "p0_outcome": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": "OK - Risoluzione otimale confermata (10 micron = 31 pixel)",
+        "sources": [
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Calibrazione formale completata con successo, densità di campionamento visivo permette distinzione di dettagli morfologici critici",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "p1_objective": {
@@ -737,19 +754,24 @@
         "user_notes": null
       },
       "p1_date": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": "25 giugno 2024 - Stress test di continuità operativa",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Data esplicita per test di affidabilità e resilienza del sistema con broker MQTT assente",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "p1_outcome": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": "OK",
+        "sources": [
+          "Report nona settimana.docx",
+          "Report settima settimana.docx"
+        ],
+        "reasoning": "Report nona settimana conferma: 'Il sistema è ora tecnicamente pronto per la transizione verso le applicazioni biologiche' e 'La nona settimana si conclude con la stabilizzazione della piattaforma'. Report settima settimana documenta 'Integrazione Hardware e Calibrazione Ottica: Assemblaggio della Raspberry Pi HQ Cam'. Integrazione sensore completata con successo.",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "p2_objective": {
@@ -773,11 +795,14 @@
         "user_notes": null
       },
       "p2_outcome": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": "OK",
+        "sources": [
+          "Report ottava settimana.docx",
+          "Report seconda settimana.docx"
+        ],
+        "reasoning": "Report ottava settimana documenta: 'Verificato con successo il meccanismo di salvataggio locale dei payload JSON in caso di mancata connettività' e 'Flusso Dati e Connettività: Il flusso operativo segue la sequenza: Acquisizione → Preprocessing → Inferenza IA → Trasmissione' con protocolli MQTT/MQTTS e LoRaWAN. Struttura messaggio MQTT definita con ID Sensore, Timestamp, Area in pixel, Confidence, Status.",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "p3_objective": {
@@ -1009,21 +1034,27 @@
         "user_notes": null
       },
       "buffer_flush_policy": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": "Salvataggio locale dei payload JSON in caso di mancata connettività",
+        "sources": [
+          "Report ottava settimana.docx"
+        ],
+        "reasoning": "Report ottava settimana esplicita: 'Verificato con successo il meccanismo di salvataggio locale dei payload JSON in caso di mancata connettività'. La politica di flush è il salvataggio locale quando la connessione è assente.",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       }
     },
     "step_7_exit_checklist": {
       "dataset_collected_in_real_conditions": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "not_applicable",
+        "value": "Sì, dataset biologico con Aspergillus Niger",
+        "sources": [
+          "Report quinta settimana.docx",
+          "Report settima settimana.docx",
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Report quinta settimana: 'La scelta di operare prioritariamente con Aspergillus Niger (costo stimato 150-200 euro) risulta strategica in questa fase'. Report settima settimana documenta test di acquisizione immagine e segmentazione su dati reali. Report nona settimana (29/06/26) conferma calibrazione ottica e raccolta dati in condizioni reali.",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "anomalies_documented_and_classified": {
@@ -1268,27 +1299,33 @@
         "user_notes": null
       },
       "measurement_field_1": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": "Temperatura",
+        "sources": [
+          "relevant_parameters"
+        ],
+        "reasoning": "Derivato dai parametri rilevanti selezionati nello Step 1.",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "measurement_field_2": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": "Umidità relativa",
+        "sources": [
+          "relevant_parameters"
+        ],
+        "reasoning": "Derivato dai parametri rilevanti selezionati nello Step 1.",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "measurement_field_3": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": "Movimento / presenza",
+        "sources": [
+          "relevant_parameters"
+        ],
+        "reasoning": "Derivato dai parametri rilevanti selezionati nello Step 1.",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "processed_indicator_1": {
@@ -1385,11 +1422,13 @@
         "user_notes": null
       },
       "parsing_test_passed": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "not_applicable",
+        "value": "OK",
+        "sources": [
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Test di parsing del flusso di elaborazione dati condotto il 02 luglio con immagini sintetiche: 'L'attività ha confermato che l'algoritmo risponde correttamente agli input simulati (esito OK)'",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       }
     },
@@ -1474,11 +1513,13 @@
         "user_notes": null
       },
       "power_interruption_notes": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "missing",
+        "value": "Implementazione di modulo MOSFET o RELÈ per controllo illuminazione; sincronizzazione LED al momento dello scatto per minimizzare input termico e garantire risparmio energetico",
+        "sources": [
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "L'estratto specifica esplicitamente la necessità tecnica emersa dai test di stress per la gestione dell'alimentazione dell'illuminazione",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "measurement_repeatability_method": {
@@ -1620,11 +1661,13 @@
     },
     "step_10_exit_checklist": {
       "all_tests_passed": {
-        "value": null,
-        "sources": [],
-        "reasoning": null,
-        "confidence": "low",
-        "approval_status": "not_applicable",
+        "value": "Sì (test sintetici)",
+        "sources": [
+          "Report nona settimana.docx"
+        ],
+        "reasoning": "Report nona settimana dichiara esplicitamente: 'L'attività ha confermato che l'algoritmo risponde correttamente agli input simulati (esito \"OK\"), confermando la solidità del workflow'",
+        "confidence": "high",
+        "approval_status": "proposed",
         "user_notes": null
       },
       "no_open_critical_anomalies": {
