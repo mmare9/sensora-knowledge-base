@@ -1,0 +1,1814 @@
+{
+  "project_id": "56f7ffed-2584-4ca5-820d-803865655f7c",
+  "updated_at": "2026-07-27T12:54:33.116950+00:00",
+  "data": {
+    "schema_version": "1.0.0",
+    "current_maturity_step": 2,
+    "project": {
+      "sensor_name": {
+        "value": "Sensore Acido Acetico M5",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "project_code": {
+        "value": "Ace_M5",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "responsible": {
+        "value": "Armando Papola",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "opening_date": {
+        "value": "luglio 2025",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Esplicitamente dichiarato in Fase_1.md come periodo di avvio del progetto",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "document_version": {
+        "value": "0.1",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      },
+      "client_context": {
+        "value": "Makros / Film, Fotografie e Pellicole",
+        "sources": [
+          "progetto"
+        ],
+        "reasoning": "Valore preso dall'anagrafica di progetto.",
+        "confidence": "high",
+        "approval_status": "approved",
+        "user_notes": null
+      }
+    },
+    "step_1_problem_requirements": {
+      "phenomenon_to_monitor": {
+        "value": "Emissione di acido acetico (CH₃COOH) da pellicole in acetato di cellulosa",
+        "sources": [
+          "Fase_1.md",
+          "acetate_guide.pdf"
+        ],
+        "reasoning": "Problema dichiarato come focus principale: vinegar syndrome in contenitori chiusi",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "event_to_detect": {
+        "value": "Superamento di soglie di concentrazione di acido acetico in ambiente chiuso",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Obiettivo di individuare precocemente l'emissione; discussione di carichi elevati e valori residui nell'ordine di 20-200 ppmV",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "expected_output": {
+        "value": "Valori grezzi R, G, B e intensità luminosa con timestamp",
+        "sources": [
+          "Fase_2.md"
+        ],
+        "reasoning": "Output esplicito del sensore RGB TCS3472 con metadati",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "acquisition_frequency": {
+        "value": "Continuo per sensore MOS",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Scelta per rilevazione di trend e allarme in tempo reale",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "installation_constraints": {
+        "value": "Installazione all'interno di campana chiusa di isolamento con volume noto",
+        "sources": [
+          "Fase_3.md"
+        ],
+        "reasoning": "Vincolo strutturale: volume interno noto, geometria fissa, separazione da ambiente esterno",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "operating_context": {
+        "value": "Indoor, ambiente chiuso (campana di isolamento)",
+        "sources": [
+          "Fase_3.md"
+        ],
+        "reasoning": "Contesto di laboratorio per prove controllate di degrado di pellicole in acetato",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "relevant_parameters": {
+      "temperature": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Fase_1.md",
+          "Fase_2.md",
+          "acetate_guide.pdf"
+        ],
+        "reasoning": "Temperatura è fattore critico nel degrado acetato e nella risposta dei sensori MOS — Rilevanza alta: parametro da monitorare simultaneamente",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "relative_humidity": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "acetate_guide.pdf",
+          "Fase_1.md",
+          "Fase_2.md"
+        ],
+        "reasoning": "Umidità relativa è fattore critico per distacco dei gruppi acetilici e rilascio acido — Rilevanza alta: parametro da monitorare simultaneamente",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "co_voc": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Focus principale del monitoraggio; concentrazioni target 20-200 ppmV — CO₂ / VOC: rilevanza alta per acido acetico (CH₃COOH)",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "pressure": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "luminosity": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Fase_2.md",
+          "TCS3472_en.pdf"
+        ],
+        "reasoning": "Output esplicito: intensità luminosa e valori C (Clear) — Rilevanza alta per sensore RGB TCS3472: misura intensità luminosa e canale Clear Light",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "vibration_acceleration": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "movement_presence": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "other": {
+        "value": {
+          "relevant": true
+        },
+        "sources": [
+          "Fase_2.md",
+          "Fase_3.md"
+        ],
+        "reasoning": "Metadati espliciti da registrare in ogni acquisizione — Identificativo dispositivo e identificativo strip (lotto)",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_2_entry_criteria": {
+      "requirements_defined_and_shared": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "expected_output_approved": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_2_phenomenon_study": {
+      "characteristic_timescales": {
+        "value": "Osservazione fino a 24-30 ore per singola prova",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Durata sperimentale dichiarata nelle tre prove preliminari",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "environmental_conditions": {
+        "value": "Umidità relativa (RH) ambiente: sopra 70% RH per diversi giorni favorisce crescita di muffe",
+        "sources": [
+          "acetate_guide.pdf"
+        ],
+        "reasoning": "Citato esplicitamente in acetate_guide.pdf come condizione critica per deterioramento",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "literature_thresholds": {
+        "value": "RH > 70% per diversi giorni: soglia critica per crescita di muffe",
+        "sources": [
+          "acetate_guide.pdf"
+        ],
+        "reasoning": "Acetate_guide.pdf specifica esplicitamente questo valore soglia",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "applicable_standards": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "consulted_sources": {
+        "value": "acetate_guide.pdf - Guida su deterioramento pellicole in acetato, vinegar syndrome, effetti di temperatura, umidità, inquinanti",
+        "sources": [
+          "acetate_guide.pdf"
+        ],
+        "reasoning": "Fonte primaria sul fenomeno di deterioramento acetato e condizioni di storage",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_2_exit_checklist": {
+      "measured_quantities_identified": {
+        "value": "Concentrazione di acido acetico (ppmV) via sensore MOS (AlphaSense MOX-LC o BIOS1/BIOS2) o PID (AlphaSense PID-AH)",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Fase_1.md identifica esplicitamente questi sensori come candidati per misura diretta di VOC/CH₃COOH",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "preliminary_thresholds_documented": {
+        "value": "Acido acetico ~200 ppmV: carica iniziale in prove controllate",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Fase_1.md documenta questo valore come punto di partenza sperimentale",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_3_market_research": {
+      "candidate_1_model": {
+        "value": "TCS3472 (ams) - Color Light-to-Digital Converter con IR Filter",
+        "sources": [
+          "TCS3472_en.pdf",
+          "Fase_2.md",
+          "Fase_3.md"
+        ],
+        "reasoning": "TCS3472_en.pdf datasheet disponibile e Fase_2.md, Fase_3.md lo identificano esplicitamente come sensore RGB per rilevamento cromatico su A-D Strips",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_1_parameter": {
+        "value": "Colore in spazio RGB e Clear Light; conversione in Lab per calcolo ΔE rispetto baseline",
+        "sources": [
+          "TCS3472_en.pdf",
+          "Fase_3.md"
+        ],
+        "reasoning": "TCS3472_en.pdf specifica output Red, Green, Blue (RGB) e Clear Light. Fase_3.md specifica registrazione di raw_rgb, normalized_rgb, Lab e delta_e_from_baseline",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_1_range": {
+        "value": "Dynamic range 3.800.000:1; programmable analog gain e integration time",
+        "sources": [
+          "TCS3472_en.pdf"
+        ],
+        "reasoning": "TCS3472_en.pdf specifica esplicitamente questi valori nelle Key Benefits & Features",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_1_cost": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_1_interface": {
+        "value": "I²C (indirizzo 0x29)",
+        "sources": [
+          "TCS3472_en.pdf"
+        ],
+        "reasoning": "TCS3472_en.pdf, sezione Ordering & Contact Information specifica interfaccia I²C con indirizzo I²C 0x29",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_1_judgment": {
+        "value": "Adatto - rilevazione indiretta via spostamento cromatico su indicatore chimico (A-D Strip)",
+        "sources": [
+          "Fase_3.md",
+          "Fase_2.md"
+        ],
+        "reasoning": "Fase_3.md descrive la validazione del rilevatore ottico basato su A-D Strips come banco prova controllato per l'integrazione definitiva. TCS3472 è espressamente identificato come la soluzione tecnica più adatta per misura RGB di spostamento cromatico",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_2_model": {
+        "value": "AlphaSense MOX-LC - Sensore MOS a basse concentrazioni per VOC",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Fase_1.md elenca MOX-LC come alternativa MOS sperimentale per monitoraggio continuo di acido acetico",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_2_parameter": {
+        "value": "Concentrazione di VOC generico (non selettivo per acido acetico); resistenza sensore in funzione della concentrazione",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Fase_1.md specifica che il MOX-LC misura VOC complessivo, con deriva e interferenze tipiche dei sensori MOS",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_2_range": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_2_cost": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_2_interface": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_2_judgment": {
+        "value": "Da testare - Limitazioni: misura VOC complessivo (non distingue CH₃COOH), deriva e interferenze tipiche MOS",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Fase_1.md specifica esplicitamente nella colonna Limiti che il MOX-LC 'Misura il carico VOC complessivo, non distingue necessariamente CH₃COOH' e soffre di 'Deriva e interferenze tipiche dei MOS'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_3_model": {
+        "value": "AlphaSense PID-AH",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Sensore VOC esplicitamente citato nella tabella comparativa di Fase_1.md come candidato per misura di acido acetico",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_3_parameter": {
+        "value": "VOC (Volatile Organic Compounds) tramite fotoionizzazione",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Esplicitamente descritto in Fase_1.md come 'Misura di VOC tramite fotoionizzazione'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_3_range": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_3_cost": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_3_interface": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_3_judgment": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_4_model": {
+        "value": "AlphaSense MOX-LC",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Sensore MOS a basse concentrazioni esplicitamente citato nella tabella comparativa di Fase_1.md",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "candidate_4_parameter": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_4_range": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_4_cost": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_4_interface": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "candidate_4_judgment": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "selected_solution": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "selection_rationale": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "competitor_comparison_required": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_3_exit_checklist": {
+      "at_least_three_alternatives_evaluated": {
+        "value": "Sì",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "In Fase_1.md sono esplicitamente documentati almeno 4 candidati in tabella: BIOS1 (WO₃), BIOS2 (SnO₂), AlphaSense PID-AH, AlphaSense MOX-LC, più PEM2 per T/RH",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "selected_sensor_meets_step1_requirements": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      }
+    },
+    "step_4_hardware_selection": {
+      "hardware_category": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "category_rationale": {
+        "value": "Microcontrollore con connettività UART/RS485 per integrazione sensore colore (TCS3472) e gestione payload MQTT; ESP32-S3 offre GPIO sufficienti, UART multipli e supporto Wi-Fi/BLE",
+        "sources": [
+          "esp32-s3_datasheet_en.pdf",
+          "Fase 2.md"
+        ],
+        "reasoning": "Documentazione descrive ESP32-S3 con 3 UART controller (supportano RS485), GPIO Matrix flessibile, connettività nativa. Fase 2 specifica acquisizione RGB, temperatura/umidità, e comunicazione MQTT via Edge Node.",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "selected_mcu_sbc": {
+        "value": "ESP32-S3",
+        "sources": [
+          "esp32-s3_datasheet_en.pdf"
+        ],
+        "reasoning": "Datasheet completo disponibile descrive 3 UART controller supportanti RS485, GPIO multipli configurabili, touch sensor, ADC2 con 10 canali, supporto I2C/SPI per sensore TCS3472",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "communication_protocol": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "power_supply": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "battery_autonomy_estimate": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "pcb_notes": {
+        "value": "PCB dedicato per accoppiamento ottico TCS3472 (FN package, pad layout specifico in datasheet); illuminazione LED controllata, dark reading, riferimento cromatico interno",
+        "sources": [
+          "TCS3472_en.pdf",
+          "Fase 2.md"
+        ],
+        "reasoning": "TCS3472_en.pdf fornisce pad layout FN e note hardware; Fase 2.md descrive camera ottica schermata con illuminazione controllata, normalizzazione colore, riferimento interno",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_4_exit_checklist": {
+      "bom_preliminary_defined": {
+        "value": "No, BOM non definita nei documenti disponibili",
+        "sources": [],
+        "reasoning": "Nessun estratto contiene lista componenti completa, quantità, codici produttore o costi unitari",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "unit_hardware_cost_documented": {
+        "value": "No, costo unitario hardware non documentato",
+        "sources": [],
+        "reasoning": "Nessun estratto specifica costi di componenti, moduli o assemblaggio",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_5_prototyping": {
+      "p0_objective": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p0_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p0_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p1_objective": {
+        "value": "Integrare A-D Strip in camera ottica schermata; validare acquisizione RGB con strip a livelli noti (0, 1, 2, 3 A-D secondo metodologia IPI); verificare ripetibilità ΔE su 12 prove senza ancora cercare conversione in ppm",
+        "sources": [
+          "Fase 3.md"
+        ],
+        "reasoning": "Fase 3.md esplicita: 12 prove di ripetibilità senza conversione metrologica, identificazione soglia minima cromaticamente distinguibile, stessa geometria/posizione in tutte le prove",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "p1_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p1_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p2_objective": {
+        "value": "Implementare comunicazione MQTT con broker (EMQX/NanoMQ); definire schema topic museum/acetate/cabinet-XX/adstrip/{telemetry,status,alarm}; trasmettere payload JSON con timestamp, device_id, cabinet_id, strip_id, ΔE, temperatura, umidità; implementare calcolo trend e classificazione livello A-D",
+        "sources": [
+          "Fase 2.md"
+        ],
+        "reasoning": "Fase 2.md specifica architettura completa MQTT, schema topic esplicito, payload JSON con campo timestamp/device_id/strip_id, calcolo trend/allarmi su Edge Node",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "p2_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p2_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p3_objective": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p3_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p3_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p4_objective": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p4_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "p4_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "datasheet_draft_started_from_prototype": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "critical_notes_emerged": {
+        "value": "La luce ambientale va fisicamente eliminata con una camera ottica chiusa, non affidata al software",
+        "sources": [
+          "Fase 2.md"
+        ],
+        "reasoning": "Estratto esplicito da Fase 2.md: 'la luce ambientale va fisicamente eliminata con una camera ottica chiusa'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_6_calibration": {
+      "calibration_type": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "certified_reference_sample": {
+        "value": "A-D Strips con scala cromatica di cinque riferimenti (livelli 0-3)",
+        "sources": [
+          "Fase 2.md"
+        ],
+        "reasoning": "Fase 2.md cita: 'la lettura manuale prevista dal produttore avviene confrontando la strip con una scala cromatica di cinque riferimenti'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "recalibration_frequency": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "drift_verification_method": {
+        "value": "Acquisizione del colore iniziale con ventola accesa e senza acido; verifica della stabilità dell'illuminazione; misurazione del rumore del sensore; controllo che ΔE non mostri una deriva significativa",
+        "sources": [
+          "Fase_3.md"
+        ],
+        "reasoning": "Estratto esplicito da Fase 3.md su procedura di verifica della deriva",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "accepted_tolerance": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "procedure_documented_in": {
+        "value": "Scheda prova unica (da scrivere entro 24 ore da Fase 3.md) che fissi volume libero campana, geometria, velocità ventola, modalità rilascio, durata, cadenza acquisizione, identificativo strip, criterio accettazione",
+        "sources": [
+          "Fase_3.md"
+        ],
+        "reasoning": "Fase 3.md: 'scrivere una scheda prova unica che fissi volume libero della campana, geometria, velocità della ventola, modalità di rilascio, durata, cadenza di acquisizione, identificativo della strip e criterio di accettazione'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_6_exit_checklist": {
+      "calibration_curve_documented": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "field_recalibration_procedure_written": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      }
+    },
+    "step_7_data_collection": {
+      "raw_data_collected": {
+        "value": "Valori grezzi R, G, B; intensità luminosa; temperatura; umidità relativa; tempo di esposizione; identificativo dispositivo; identificativo strip",
+        "sources": [
+          "Fase 2.md"
+        ],
+        "reasoning": "Estratto esplicito da Fase 2.md su rilevazione",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "metadata_included": {
+        "value": "timestamp, device_id, fw_version, RSSI, batteria, temperatura MCU",
+        "sources": [
+          "Fase 2.md"
+        ],
+        "reasoning": "Fase 2.md specifica esplicitamente questi metadati in contesto MQTT JSON",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "context_information": {
+        "value": "Volume libero della campana (noto); geometria della campana; velocità della ventola; temperatura ambiente; umidità relativa; condizioni di ventilazione; identificativo lotto della strip",
+        "sources": [
+          "Fase_3.md",
+          "Fase 2.md"
+        ],
+        "reasoning": "Fase 3.md specifica parametri di contesto della campana di prova e Fase 2.md cita temperatura e umidità relativa",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "anomalous_reading_handling": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "unresponsive_sensor_handling": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "drift_over_time_handling": {
+        "value": "Monitoraggio della deriva mediante acquisizione del colore iniziale con ventola accesa, verifica della stabilità dell'illuminazione e misura del rumore del sensore; controllo che ΔE non mostri deriva significativa",
+        "sources": [
+          "Fase_3.md"
+        ],
+        "reasoning": "Fase_3.md descrive esplicitamente fase di baseline per separare cambiamento reale della strip dalla deriva di LED, elettronica o temperatura",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "storage_buffer_enabled": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "storage_buffer_capacity": {
+        "value": "UART: 1024 x 8-bit condiviso; CAN: 64-byte RX FIFO",
+        "sources": [
+          "esp32-s3_datasheet_en.pdf"
+        ],
+        "reasoning": "Datasheet ESP32-S3 specifica UART FIFO e CAN FIFO; capacità memoria totale per storage applicativo non dichiarata",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "buffer_flush_policy": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_7_exit_checklist": {
+      "dataset_collected_in_real_conditions": {
+        "value": "Fase 1: tre prove sperimentali con armadi reali (A con assorbitore, B senza); concentrazioni iniziali ~200 ppmV, residue ~20 ppmV dopo 24-30 ore",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Fase_1.md documenta esplicitamente tre prove con differenti quantità di acido acetico e osservazioni fino a 24-30 ore su armadi reali",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "anomalies_documented_and_classified": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      }
+    },
+    "step_8_analysis_thresholds_ai": {
+      "intelligence_level": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "level_rationale": {
+        "value": "Risposta rapida (MOS ~15 min vs A-D ~24 ore) per individuare variazioni e confrontare armadi; basato su analisi sistema 'Sorgente → ambiente/materiali → sensore'; selettività verso CH₃COOH critica per evitare falsi positivi; correlazione con concentrazione reale deve essere validata sperimentalmente",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Fase_1.md dichiara esplicitamente che 'sola sensibilità nominale non è sufficiente' e motiva la scelta su tempo di risposta, storico continuo, selettività e analisi dinamica; non menciona necessità di ML a priori",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "threshold_1_parameter": {
+        "value": "Acido acetico (CH₃COOH) in ppmV o ppb, monitorato tramite sensore MOS (WO₃ o SnO₂)",
+        "sources": [
+          "Fase_1.md"
+        ],
+        "reasoning": "Fase_1.md identifica ossido di tungsteno con sensibilità fino a ~30 ppb e ossido di stagno come candidati principali; parametro specifico è concentrazione gassosa di acido acetico",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "threshold_1_attention": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_1_alarm": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_1_min_duration": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_1_action": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_2_parameter": {
+        "value": "Delta E (ΔE) di colore della strip A-D come indicatore di acidità cumulativa",
+        "sources": [
+          "Fase_3.md",
+          "Fase_2.md"
+        ],
+        "reasoning": "Fase_3.md specifica acquisizione di 'valori grezzi R, G e B' e controllo che 'ΔE non mostri una deriva significativa'; strip è monouso e risposta è cumulativa",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "threshold_2_attention": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_2_alarm": {
+        "value": "Scala cromatica FilmCare A-D con classi di acidità (≤0.5, 0.5–1, 1–2, 3–5, 6–8, 10–15, >20 ppmV); confronto immediato con scala di riferimento",
+        "sources": [
+          "Metal sensors for acetic acid.pdf",
+          "Fase_2.md"
+        ],
+        "reasoning": "Metal sensors for acetic acid.pdf tabella riporta classificazione A-D in intervalli di ppmV; Fase_2.md cita 'confronto immediatamente con la scala cromatica'; FilmCare official guide [3] richiede confronto visuale post-esposizione",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "threshold_2_min_duration": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_2_action": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_parameter": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_attention": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_alarm": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_min_duration": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "threshold_3_action": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "model_input_variables": {
+        "value": "raw_rgb (R, G, B channels)",
+        "sources": [
+          "Fase 2.md"
+        ],
+        "reasoning": "Fase_3.md specifica esplicitamente 'valori grezzi R, G e B' come dati acquisiti dal sistema",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "model_type": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "training_dataset_available": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "validation_metrics_target": {
+        "value": "ripetibilità tra prove equivalenti",
+        "sources": [
+          "Fase_3.md"
+        ],
+        "reasoning": "Fase_3.md elenca esplicitamente 'ripetibilità tra prove equivalenti' come metrica ricavabile dalla curva ΔE(t)",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_9_data_contract": {
+      "device_id": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "device_type": {
+        "value": "Sensore colore RGB (TCS3472) su ESP32-S3",
+        "sources": [
+          "TCS3472_en.pdf",
+          "esp32-s3_datasheet_en.pdf",
+          "Fase 2.md"
+        ],
+        "reasoning": "Gli estratti documentali includono specifiche TCS3472 e ESP32-S3; Fase_2.md descrive il rilevatore con illuminazione RGB e conversione colore numerica",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "timestamp": {
+        "value": "ISO 8601 (es. '2026-07-16T10:15:00Z')",
+        "sources": [
+          "Fase 2.md"
+        ],
+        "reasoning": "Fase_2.md include esempio di payload con 'timestamp': '2026-07-16T10:15:00Z' in formato ISO 8601",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "frame_id": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_field_1": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_field_2": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_field_3": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "processed_indicator_1": {
+        "value": "delta_e_from_baseline (ΔE)",
+        "sources": [
+          "Fase_3.md"
+        ],
+        "reasoning": "Fase_3.md identifica ΔE(t) come 'variabile principale da osservare' e indicatore chiave di evoluzione dell'acidità",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "processed_indicator_2": {
+        "value": "estimated_ad_level",
+        "sources": [
+          "Fase_3.md"
+        ],
+        "reasoning": "Fase_3.md registra 'estimated_ad_level' durante la prova come secondo indicatore elaborato di stato della strip",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "connection_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "local_storage_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "event_detected": {
+        "value": "Variazione cromatica (ΔE) della strip A-D oltre soglia",
+        "sources": [
+          "Fase_3.md"
+        ],
+        "reasoning": "Fase_3.md descrive ΔE(t) come variabile principale osservata durante la prova; superamento di soglia cromatica è l'evento rilevante",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    },
+    "step_9_transport_config": {
+      "mqtt_topic_endpoint": {
+        "value": "museum/acetate/cabinet-01/adstrip/telemetry",
+        "sources": [
+          "Fase_2.md"
+        ],
+        "reasoning": "Fase_2.md propone esplicitamente questo topic MQTT per dati telemetrici da strip A-D in contesto museo",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "serialization_format": {
+        "value": "JSON",
+        "sources": [
+          "Fase_2.md",
+          "Fase_3.md"
+        ],
+        "reasoning": "Fase_2.md e Fase_3.md descrivono payload MQTT in formato JSON leggibile; questa è la scelta esplicita per il primo prototipo",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "sentinel_alignment_confirmed_by": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "sentinel_alignment_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_9_exit_checklist": {
+      "payload_approved_by_tech_lead": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "parsing_test_passed": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      }
+    },
+    "step_10_field_validation": {
+      "continuous_operation_method": {
+        "value": "Prova con volume della campana noto, ventola a regime fisso, rilascio mediante aliquota controllata per 12 cicli ripetitivi senza cercare conversione in ppm",
+        "sources": [
+          "Fase_3.md"
+        ],
+        "reasoning": "Fase_3.md descrive esplicitamente il metodo di test: congelare banco con volume noto, ventola a regime fisso, rilascio controllato, 12 prove di ripetibilità",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "continuous_operation_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "continuous_operation_notes": {
+        "value": "La risposta potrebbe dipendere più da tempo, umidità e assorbimento della campana che dalla sola quantità di acido; occorre verificare ripetibilità prima della calibrazione metrologica",
+        "sources": [
+          "Fase_3.md"
+        ],
+        "reasoning": "Fase_3.md esplicita il rischio che la ripetibilità dipenda da fattori diversi dalla quantità di acido",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "connection_loss_method": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "connection_loss_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "connection_loss_notes": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "power_interruption_method": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "power_interruption_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "power_interruption_notes": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_repeatability_method": {
+        "value": "12 prove equivalenti con stessa geometria, volume libero della campana noto, osservazione di ΔE(t) e variabilità tra curve",
+        "sources": [
+          "Fase_3.md"
+        ],
+        "reasoning": "Fase_3.md specifica 12 prove di ripetibilità senza conversione in ppm, osservando ΔE(t) per ricavare ripetibilità tra prove equivalenti",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "measurement_repeatability_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "measurement_repeatability_notes": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "thermal_stress_method": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "thermal_stress_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "thermal_stress_notes": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "buffer_saturation_method": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "buffer_saturation_outcome": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "buffer_saturation_notes": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "test_environment": {
+        "value": "Campana di isolamento con volume interno noto, ventola a velocità costante, fonte controllata di acido acetico, sensore RGB/A-D Strip, temperature e umidità monitorate",
+        "sources": [
+          "Fase_3.md"
+        ],
+        "reasoning": "Fase_3.md descrive esplicitamente la configurazione della campana, ventola, punto di rilascio e misure ambientali come componenti del setup di test",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "test_campaign_duration": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "anomalies_detected": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "corrective_actions_applied": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "validation_approved_by": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      }
+    },
+    "step_10_exit_checklist": {
+      "all_tests_passed": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "no_open_critical_anomalies": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "validation_dataset_archived": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      },
+      "repeatability_within_tolerance": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "not_applicable",
+        "user_notes": null
+      }
+    },
+    "step_11_final_documentation": {
+      "technical_datasheet_version": {
+        "value": "v2.0",
+        "sources": [
+          "esp32-s3_datasheet_en.pdf"
+        ],
+        "reasoning": "esp32-s3_datasheet_en.pdf riporta esplicitamente 'ESP32-S3 Series Datasheet Version 2.0'",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "technical_datasheet_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "technical_datasheet_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "user_manual_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "user_manual_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "user_manual_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "installation_manual_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "installation_manual_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "installation_manual_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "calibration_procedure_doc_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "calibration_procedure_doc_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "calibration_procedure_doc_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "firmware_release_notes_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "firmware_release_notes_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "firmware_release_notes_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "final_bom_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "final_bom_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "final_bom_status": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "code_repository_branch_tag": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "final_firmware_version": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "code_optimized_post_validation": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "rd_manager_name": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "rd_manager_date_signature": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "ai_tech_lead_name": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "ai_tech_lead_date_signature": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "delivery_lead_name": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "delivery_lead_date_signature": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "project_closure_date": {
+        "value": null,
+        "sources": [],
+        "reasoning": null,
+        "confidence": "low",
+        "approval_status": "missing",
+        "user_notes": null
+      },
+      "lessons_learned": {
+        "value": "La compensazione della luce ambientale non deve essere affidata solo al software: la luce ambientale va fisicamente eliminata con una camera ottica chiusa",
+        "sources": [
+          "Fase 2.md"
+        ],
+        "reasoning": "Dichiarato esplicitamente nelle note di Fase 2 come principio tecnico critico",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      },
+      "reusable_components_for_future_projects": {
+        "value": "Sensore RGB multispettrale (TCS3472) per rilevazione di spostamenti cromatici tra blu, verde e giallo",
+        "sources": [
+          "Fase 2.md",
+          "TCS3472_en.pdf"
+        ],
+        "reasoning": "Identificato come soluzione tecnicamente adatta per misurare fenomeni di cambio colore, documentato come scelta hardware specifica",
+        "confidence": "high",
+        "approval_status": "proposed",
+        "user_notes": null
+      }
+    }
+  }
+}
