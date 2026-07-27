@@ -1,0 +1,35 @@
+{
+  "filename": "Report nona settimana.docx",
+  "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "size_bytes": 14957,
+  "kind": "other",
+  "notes": null,
+  "parsing_status": "success",
+  "parsing_warnings": [],
+  "text_content": "Report nona settimana\nProgetto biosensore\n1. Inquadramento Strategico e Sintesi Operativa\nIl progetto è giunto alla sua nona settimana, segnando un passaggio cruciale: la transizione dal completamento dell'approvvigionamento hardware alla fase di validazione metrica e funzionale del sistema. Questa fase è di fondamentale importanza, poiché la precisione dei dati scientifici che il sistema raccoglierà dipende interamente dalla corretta integrazione tra i sensori ottici e l'ambiente di elaborazione. In un contesto di Ricerca e Sviluppo, la robustezza della validazione iniziale è il solo garante della riproducibilità degli esperimenti e dell'integrità delle osservazioni biologiche a lungo termine.\nL'investimento complessivo per l'acquisizione della componentistica si attesta su un valore di budget approvato di circa 249€ (escluse spese di spedizione). Con la disponibilità dell'hardware di base, l'attenzione si è spostata immediatamente verso le procedure di calibrazione ottica, introducendo la necessità di una standardizzazione metrica rigorosa.\n2. Calibrazione Ottica e Standardizzazione Metrica (29/06/26)\nLa calibrazione iniziale rappresenta il pilastro su cui poggia la validità scientifica dell'intero progetto. Stabilire una correlazione univoca tra le unità di misura fisiche (micron) e le unità di misura digitali (pixel) è indispensabile per garantire che le misurazioni spaziali siano accurate e, soprattutto, confrontabili tra diverse sessioni sperimentali.\nNella sessione del 29 giugno, è stata eseguita una calibrazione formale utilizzando un vetrino micrometrico. I risultati ottenuti sono riassunti nella tabella seguente:\nQuesta risoluzione è ottimale per gli obiettivi del progetto. Traducendo questi dati in termini operativi, una dimensione di 10 micron corrisponde a circa 31 pixel sull'immagine acquisita. Tale densità di campionamento visivo permette al sistema di distinguere dettagli morfologici critici durante le fasi iniziali della germinazione, come il rigonfiamento del tegumento o la protrusione della radichetta, che richiedono precisione sub-millimetrica per un'analisi quantitativa corretta. Definita la precisione teorica, è stato necessario validare la stabilità operativa del sistema in scenari di stress.\n3. Stress Test Operativo e Gestione delle Criticità (30/06/26)\nOltre alla precisione ottica, la stabilità della connessione SSH e la gestione termica del Raspberry Pi sono fattori determinanti per il monitoraggio longitudinale. Un failure di sistema durante sessioni di scatto prolungate comprometterebbe l'integrità dei dataset temporali, rendendo l'esperimento nullo.\nIl 30 giugno è stato avviato uno stress test focalizzato sul monitoraggio di una goccia d'acqua su vetrino, con una frequenza di scatto impostata a un fotogramma ogni ora, includendo il monitoraggio costante della temperatura della CPU del Raspberry Pi.\nEsito e Risoluzione:\nCriticità rilevata: Il primo test si è interrotto dopo 10 ore a causa di un failure della connessione SSH. Sebbene il Raspberry Pi sia rimasto termicamente stabile, l'interruzione della comunicazione rappresenta un rischio inaccettabile per la continuità del flusso dati.\nRisoluzione: A seguito di un intervento di debugging sulla stabilità di rete, è stato eseguito un secondo test della durata di circa 20 ore, conclusosi con successo.\nL'analisi tecnica evidenzia la necessità di implementare un modulo MOSFET o RELÈ per il controllo dell'illuminazione. Sincronizzare l'accensione dei LED esclusivamente al momento dello scatto è una scelta strategica fondamentale per minimizzare l'input termico verso il campione biologico e garantire il risparmio energetico del sistema. La stabilizzazione hardware ha permesso di procedere con fiducia alla fase di testing del software.\n4. Validazione del Flusso di Elaborazione Dati (02/07/26)\nLa capacità di acquisire immagini di alta qualità deve essere supportata da un algoritmo di elaborazione dati altrettanto resiliente. L'utilizzo di simulazioni software è una pratica di Project Management essenziale per prevenire errori di interpretazione e validare la logica computazionale prima dell'esposizione a dati reali.\nIn data 02 luglio, è stato testato il flusso di processing utilizzando immagini generate sinteticamente tramite uno script Python, progettato per simulare le variazioni visive tipiche della germinazione. L'attività ha confermato che l'algoritmo risponde correttamente agli input simulati (esito \"OK\"), confermando la solidità del workflow integrato hardware-software e la prontezza del sistema per l'analisi di dati organici.\n5. Piano di ricerca del biosensore\nNel corso della settimana è stato svolto anche una presentazione del piano di ricerca del biosensore. Esso espone in modo sintetico le varie fasi di ricerca e sviluppo, molto utile per capire il metodo di approccio utilizzato per arrivare ad un primo prototipo del sensore.\n6. Conclusioni e Pianificazione Evolutiva\nLa nona settimana si conclude con la stabilizzazione della piattaforma e la conferma di una risoluzione ottica di alto livello. Il sistema ha dimostrato di poter sostenere sessioni di lavoro prolungate, superando le criticità di connettività iniziali.\nIl sistema è ora tecnicamente pronto per la transizione verso le applicazioni biologiche, disponendo di una base metrica certificata e di un flusso di lavoro validato.",
+  "tables": [
+    {
+      "name": "table_1",
+      "columns": [
+        "Parametro Metrico",
+        "Valore Rilevato"
+      ],
+      "rows": [
+        [
+          "Rapporto Micron/Pixel",
+          "~ 0,3236"
+        ],
+        [
+          "Risoluzione Spaziale",
+          "3,09 pixel per micron"
+        ]
+      ]
+    }
+  ],
+  "metadata": {
+    "format": "docx",
+    "paragraph_count": 24,
+    "table_count": 1
+  },
+  "created_at": "2026-07-27T09:07:11.586940+00:00"
+}
